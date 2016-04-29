@@ -1,0 +1,5 @@
+"SCAT_ID","SCAT_STATUSID","SCAT_DISPSTATUS","SCAT_KORT","SCAT_LANG","SCAT_HCATID","SCAT_DISPHCAT","SCAT_CODE","SCAT_WIJZIGENTOEGESTAAN","SCAT_OPMERKING"
+"1","160002",,"Actief","Actieve klant/Begunstigde","10",,"KLS.Actief","FALSE",
+"2","160002",,"Onttrokken","Onttrokken klant","10",,"KLS.Onttrokken","FALSE",
+"3","160002",,"HAdres","Huidig adres","30",,"ADR.HAdres","FALSE",
+"4","160002",,"OAdres","Oud adres","30",,"ADR.OAdres","FALSE",

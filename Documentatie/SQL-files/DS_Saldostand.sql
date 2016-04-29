@@ -1,0 +1,13 @@
+CREATE TABLE Saldostand (
+  Saldostand_Id INTEGER NOT NULL PRIMARY KEY Autoincrement,
+  Saldostand_StatusId INTEGER DEFAULT 165009 NOT NULL,
+  Saldostand_DispStatus VARCHAR(75) DEFAULT 'Onbekende status / Tabel-initrecord',
+  Saldostand_JgegId INTEGER DEFAULT 1 NOT NULL,
+  Saldostand_Datum DATETIME DEFAULT '01-01-1900 00:00:00' NOT NULL,
+  Saldostand_Saldo CURRENCY,
+  Saldostand_Opmerking VARCHAR(250),
+  FOREIGN KEY(SALDOSTAND_STATUSID) REFERENCES STATUS(STATUS_CODE) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY(SALDOSTAND_JGEGID) REFERENCES JAARGEGEVENS(JGEG_ID) ON DELETE CASCADE ON UPDATE CASCADE
+); 
+CREATE INDEX "IdxSaldostand_JgegId" ON Saldostand (Saldostand_JgegId ASC); 
+CREATE INDEX "IdxSaldostand_Datum" ON Saldostand (Saldostand_Datum ASC);

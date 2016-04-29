@@ -1,0 +1,10 @@
+"PROD_ID","PROD_STATUSID","PROD_DISPSTATUS","PROD_NAAMKORT","PROD_NAAMLANG","PROD_KLEUR","PROD_CODE","PROD_BONJN","PROD_ACTIEFJN","PROD_DISPACTIEF","PROD_WAARDE","PROD_AANTALEENHEDENPERPRODUCT","PROD_EENHEIDNAAM","PROD_WAARDEPEREENHEID","PROD_OPMERKING"
+"1","170009",,"ProdKort","Productnaam","Kleur","Prodcode","TRUE","FALSE","Nee","0.00","20","vel","0.00",
+"2","170002",,"Geel025","Geel met bonwaarde 0,25 euro","Geel","Geel025","TRUE","FALSE","Nee","5.00","20","vel","0.25",
+"3","170002",,"Blauw050","Blauw met bonwaarde 0,50 euro","Blauw","Blauw050","TRUE","FALSE","Nee","10.00","20","vel","0.50",
+"4","170002",,"Rood050","Rood met bonwaarde 0,50 euro","Rood","Rood050","TRUE","TRUE","Ja","10.00","20","vel","0.50",
+"5","170002",,"Roze250","Roze met bonwaarde 2,50 euro","Roze","Roze250","TRUE","TRUE","Ja","50.00","20","vel","2.50",
+"6","170002",,"Oranje075","Oranje met bonwaarde 0,75 euro","Oranje","Oranje075","TRUE","FALSE","Nee","15.00","20","vel","0.75",
+"7","170002",,"Groen125","Groen met bonwaarde 1,25 euro","Groen","Groen125","TRUE","FALSE","Nee","25.00","20","vel","1.25",
+"8","170002",,"Wit250","Wit met bonwaarde 2,50 euro","Wit","Wit250","TRUE","FALSE","Nee","50.00","20","vel","2.50",
+"9","170002",,"Groen100","Groen met bonwaarde 1,00 euro","Groen","Groen100","TRUE","TRUE","Ja","20.00","20","vel","1.00",

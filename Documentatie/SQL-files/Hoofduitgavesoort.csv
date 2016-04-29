@@ -1,0 +1,5 @@
+"HUS_ID","HUS_STATUSID","HUS_DISPSTATUS","HUS_KORT","HUS_LANG","HUS_WIJZIGENTOEGESTAAN","HUS_OPMERKING"
+"1","190002",,"CAfdracht","Collecte-afdrachten","FALSE",
+"2","190002",,"Algemeen","Algemene uitgaven","FALSE",
+"3","190002",,"Admin","Uitgave t.b.v. administratie","FALSE",
+"4","190002",,"Verwerking","Verwerkingskosten","FALSE",

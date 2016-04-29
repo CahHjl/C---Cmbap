@@ -1,0 +1,15 @@
+CREATE TABLE Telefoonnr (
+  Tlf_Id INTEGER NOT NULL PRIMARY KEY Autoincrement,
+  Tlf_StatusId INTEGER DEFAULT 105009,
+  Tlf_DispStatus VARCHAR(75) DEFAULT 'Telefoonnummergegevens zijn leeg / Tabel-initrecord',
+  Tlf_KlBgId INTEGER DEFAULT 1 NOT NULL,
+  Tlf_DispKlBg VARCHAR(75) DEFAULT 'Klant-Begunstigde',
+  Tlf_Telefoonnr VARCHAR(16) DEFAULT '000-000000',
+  Tlf_Opmerking VARCHAR(250),
+  FOREIGN KEY(TLF_KLBGID) REFERENCES KLANT_BEGUNSTIGDE(KLBG_ID) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY(TLF_STATUSID) REFERENCES STATUS(STATUS_CODE) ON DELETE CASCADE ON UPDATE CASCADE
+);
+CREATE INDEX "IdxTlf_DispKlBg" ON Telefoonnr (Tlf_DispKlBg ASC); 
+CREATE INDEX "IdxTlf_KlBgId" ON Telefoonnr (Tlf_KlBgId ASC); 
+CREATE INDEX "IdxTlf_StatusId" ON Telefoonnr (Tlf_StatusId ASC); 
+CREATE INDEX "IdxTlf_Telefoonnr" ON Telefoonnr (Tlf_Telefoonnr ASC);

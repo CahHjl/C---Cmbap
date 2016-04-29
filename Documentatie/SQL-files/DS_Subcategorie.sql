@@ -1,0 +1,18 @@
+CREATE TABLE Subcategorie (
+  Scat_Id INTEGER NOT NULL PRIMARY KEY Autoincrement,
+  Scat_StatusId INTEGER DEFAULT 160009,
+  Scat_DispStatus VARCHAR(75) DEFAULT 'Scat-record is leeg / Tabel-initrecord',
+  Scat_kort VARCHAR(10) DEFAULT 'Subcat_kort' NOT NULL,
+  Scat_lang VARCHAR(50) DEFAULT 'Subcat_lang' NOT NULL,
+  Scat_HcatId INTEGER DEFAULT 1 NOT NULL,
+  Scat_DispHcat VARCHAR(50),
+  Scat_Code VARCHAR(14),
+  Scat_Wijzigentoegestaan INTEGER DEFAULT 1 NOT NULL,
+  Scat_Opmerking VARCHAR(250),
+  FOREIGN KEY(SCAT_HCATID) REFERENCES HOOFDCATEGORIE(HCAT_ID) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY(SCAT_STATUSID) REFERENCES STATUS(STATUS_CODE) ON DELETE CASCADE ON UPDATE CASCADE
+);
+CREATE UNIQUE INDEX IdxScat_kort ON Subcategorie (Scat_kort ASC);
+CREATE INDEX IdxScat_HcatId ON Subcategorie (Scat_HcatId ASC);
+CREATE UNIQUE INDEX IdxScat_HcatIdScatId ON Subcategorie (Scat_HcatId ASC, Scat_Id ASC);
+CREATE UNIQUE INDEX IdxScat_Code ON Subcategorie (Scat_Code ASC);

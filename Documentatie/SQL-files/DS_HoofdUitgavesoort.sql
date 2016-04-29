@@ -1,0 +1,11 @@
+CREATE TABLE HoofdUitgavesoort (
+  Hus_Id INTEGER NOT NULL PRIMARY KEY Autoincrement,
+  Hus_StatusId INTEGER DEFAULT 190002,
+  Hus_DispStatus VARCHAR(75) DEFAULT 'Ingevoerd hus-record',
+  Hus_Kort VARCHAR(10) DEFAULT 'Hus_Kort' NOT NULL,
+  Hus_Lang VARCHAR(50) DEFAULT 'Hus_Lang' NOT NULL,
+  Hus_Wijzigentoegestaan INTEGER DEFAULT 1,
+  Hus_Opmerking VARCHAR(250),
+  FOREIGN KEY(HUS_STATUSID) REFERENCES STATUS(STATUS_CODE) ON DELETE CASCADE ON UPDATE CASCADE
+);
+CREATE UNIQUE INDEX "IdxHus_Kort" ON HoofdUitgavesoort (Hus_Kort ASC);

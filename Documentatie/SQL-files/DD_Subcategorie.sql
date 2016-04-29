@@ -1,0 +1,5 @@
+INSERT INTO Subcategorie (Scat_Id, Scat_StatusId, Scat_DispStatus, Scat_kort, Scat_lang, Scat_HcatId, Scat_DispHcat, Scat_Code, Scat_Wijzigentoegestaan, Scat_Opmerking) values (1, 78, NULL, 'Actief', 'Actieve klant/Begunstigde', 10, NULL, 'KLS.Actief', 0, NULL);
+INSERT INTO Subcategorie (Scat_Id, Scat_StatusId, Scat_DispStatus, Scat_kort, Scat_lang, Scat_HcatId, Scat_DispHcat, Scat_Code, Scat_Wijzigentoegestaan, Scat_Opmerking) values (2, 78, NULL, 'Onttrokken', 'Onttrokken klant', 10, NULL, 'KLS.Onttrokken', 0, NULL);
+INSERT INTO Subcategorie (Scat_Id, Scat_StatusId, Scat_DispStatus, Scat_kort, Scat_lang, Scat_HcatId, Scat_DispHcat, Scat_Code, Scat_Wijzigentoegestaan, Scat_Opmerking) values (3, 78, NULL, 'HAdres', 'Huidig adres', 30, NULL, 'ADR.HAdres', 0, NULL);
+INSERT INTO Subcategorie (Scat_Id, Scat_StatusId, Scat_DispStatus, Scat_kort, Scat_lang, Scat_HcatId, Scat_DispHcat, Scat_Code, Scat_Wijzigentoegestaan, Scat_Opmerking) values (4, 78, NULL, 'OAdres', 'Oud adres', 30, NULL, 'ADR.OAdres', 0, NULL);
+

@@ -1,0 +1,30 @@
+﻿* Aantal records toe te voegen in demo-versie, qua instelling, verplaatsten naar licentie-bestand??
+* Kleurgebruik in schermen en editvelden en ook bij foutschermen (rood-geelwit voor fatale fouten met beëindiging programma, blauw-geel/wit voor
+  fouten als je door kunt gaan en groen-geel/wit als er opmerkingen zijn. Dit laatste kan ook via een meldingbox, met keuze OK, Ja/Nee en/of annuleren).
+* Terugkeer vanuit Error-scherm aan werken (er moet in scherm gewacht worden tot op knop gekikt wordt (1), bij klik op kruis (2) ook waarde in returnvalue)
+  en dan ook waarde gv.errorReturn als return waarde teruggeven
+* Encryptie data
+
+Tabellen
+* Standaardisatie van update, insert, delete voor alle tabellen
+* Zoek- en telmethod een voor alle tabellen maken
+
+* Instelling soort administratie (Bon, Munt, Allebei)
+<* Status zoek-routines (method in PF) via code, tekst (kort en lang) in product Deels klaar
+* LATER: Specifieke velden van product op slaan, i.p.v. heel record in eens.
+* Instellingen: lezen memo-veld. Is nu afgeblokt. Zie http://www.akadia.com/services/dotnet_read_write_blob.html
+
+Done
+<*> Cmbap.cs - Na openen van Licentie-bestand controle of er 0 of meerdere licentierecords zijn. Bij meerdere records, mag er maar 1 actief zijn.
+	(r.57)	 Bij 0 records foutcode L-00, bij meerdere records en geen actief records (L-01), bij meerdere actieve records L-02
+<*> Error-scherm herschrijven
+<*> Invoer producten: Opmerking invoervld bevat waarde, terwijl dat niet het geval is. Dit komt doordat bij laden van product opmerkingveld i.v.m.
+  conversiefout niet wordt geladen (= afgeblokt in tblPd).
+<*> Klik in datagrid op veld Product -> selecteer hele rij.
+<*> !! Voor Delete/verwijderen product: controle of product wordt gebruikt en daar eventueel bericht over geven
+<*> Product invoer: max. records toevoegen in demo-versie 
+
+frmInvoerJaarGegevens
+* Method na klik op delete-buttton
+
+

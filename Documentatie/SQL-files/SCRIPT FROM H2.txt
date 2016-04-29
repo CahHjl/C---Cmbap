@@ -1,0 +1,30 @@
+Omzetting structuur H2-SQLite/??/Foreign Key's/Data H2-SQLite
+ 1	*** Adresgegevens			22	15
+ 2	*** Bankgironr				22	15
+ 3	*** Bankregel				22	27	 4
+ 4	*** Bestelling				22	 2	15	27	
+ 5	*** Bestelregel				22	18	 4
+ 6	**- Component_tekst
+ 7	**- DbFiles
+ 8	*** Email					22	 9	 4
+ 9	*** Emailadres				22	15
+10	*** Gebruiker				22
+11	*** Hoofdcategorie			22
+12	*** Hoofduitgavesoort		22
+13	*** Instellingen			22
+14	*** Jaargegevens			22
+15	*** Klant_Begunstigde		22
+16	*** Licentiecontrole		22
+17	*** Log						22	 7
+18	*** Product					22	
+19	**- Programerror
+21	*** Saldostand				22	14
+22	**- Status
+23	*** Subcategorie			22	11
+24	*** Subuitgavesoort			22	12
+25	*** Telefoonnr				22	15
+26	*** Uitgaven				22	15	12	24
+27	*** Verwerkperiode			22
+28	*** Voorraad				22	14	18
+29	*** Modules					30
+30	*** Licentie

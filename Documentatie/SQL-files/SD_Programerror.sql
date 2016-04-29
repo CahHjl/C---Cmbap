@@ -1,0 +1,2 @@
+INSERT INTO Programerror (PE_Id, PE_ProgrammaId, PE_ErrorcodeId, PE_PrgErrNr, PE_Omschrijving, PE_Oplossing, PE_Afhandeling) values (2, 15, 16, '15.16', '0-waarde', 'Anders invullen', NULL);
+INSERT INTO Programerror (PE_Id, PE_ProgrammaId, PE_ErrorcodeId, PE_PrgErrNr, PE_Omschrijving, PE_Oplossing, PE_Afhandeling) values (3, 14, 17, '14.17', 'Gesloten tabel', 'Programmeerfout', NULL);

@@ -1,0 +1,20 @@
+CREATE TABLE Voorraad (
+  Vrrd_Id INTEGER NOT NULL PRIMARY KEY Autoincrement,
+  Vrrd_JgegId INTEGER DEFAULT 1,
+  Vrrd_DispJgeg VARCHAR(15),
+  Vrrd_StatusId INTEGER DEFAULT 150009,
+  Vrrd_Dispstatus VARCHAR(75) DEFAULT 'Voorraad-record is leeg / Tabelinitrecord / Tabel-initrecord',
+  Vrrd_ProdId INTEGER DEFAULT 1,
+  Vrrd_DispProduct VARCHAR(35),
+  Vrrd_Inventarisatiedatum DATETIME DEFAULT '01-01-1900 00:00:00',
+  Vrrd_Aantal BIGINT DEFAULT 0,
+  Vrrd_Laagste_productnr BIGINT DEFAULT 0,
+  Vrrd_Hoogste_productnr BIGINT DEFAULT 0,
+  Vrrd_Opmerking VARCHAR(250),
+  FOREIGN KEY(VRRD_PRODID) REFERENCES PRODUCT(PROD_ID) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY(VRRD_STATUSID) REFERENCES STATUS(STATUS_CODE) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY(VRRD_JGEGID) REFERENCES JAARGEGEVENS(JGEG_ID) ON DELETE CASCADE ON UPDATE CASCADE
+);
+CREATE INDEX "IdxVrrd_JgegId" ON Voorraad (Vrrd_JgegId ASC); 
+CREATE INDEX "IdxVrrd_ProdId" ON Voorraad (Vrrd_ProdId ASC); 
+CREATE INDEX "IdxVrrd_Inventarisatiedatum" ON Voorraad (Vrrd_Inventarisatiedatum ASC);

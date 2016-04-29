@@ -1,0 +1,4 @@
+"HCAT_ID","HCAT_STATUSID","HCAT_DISPSTATUS","HCAT_PREFIX","HCAT_KORT","HCAT_LANG","HCAT_OPMERKING","HCAT_WIJZIGENTOEGESTAAN"
+"10","195002",,"KLS","Klantstatu","Klantstatus",,"FALSE"
+"20","195002",,"BGS","BegunstSta","Begunstigde-status",,"FALSE"
+"30","195002",,"ADR","Adresstatu","Adresstatus",,"FALSE"
