@@ -7,25 +7,24 @@ using System.Data.SQLite;
 using globalVars;
 using ProcFunc;
 
-
-namespace nsTblJg
+namespace nsTblSs
 {
-    public class tblJg
+    public class tblSs
     {
-        public struct jgRecord
+        public struct ssRecord
         {
-            public int Jgeg_Id { get; set; }
-            public int Jgeg_StatusId { get; set; }
-            public string Jgeg_DispStatus { get; set; }
-            public string Jgeg_Omschrijving { get; set; }
-            public DateTime Jgeg_Begindatum { get; set; }
-            public DateTime Jgeg_Einddatum { get; set; }
-            public DateTime Jgeg_Mutatiedatum { get; set; }
-            public string Jgeg_Opmerking { get; set; }
+            public int Saldostand_Id { get; set; }
+            public int Saldostand_StatusId { get; set; }
+            public string Saldostand_DispStatus { get; set; }
+            public string Saldostand_Omschrijving { get; set; }
+            public DateTime Saldostand_Begindatum { get; set; }
+            public DateTime Saldostand_Einddatum { get; set; }
+            public DateTime Saldostand_Mutatiedatum { get; set; }
+            public string Saldostand_Opmerking { get; set; }
         }
 
-        public List<jgRecord> lstJaarGegevensRecord = new List<jgRecord>();
-        public int jgListCount;
+        public List<ssRecord> lstJaarGegevensRecord = new List<ssRecord>();
+        public int ssListCount;
 
         public void zoekJaarGegevensRecord(string sZoekarg)
         {
@@ -78,23 +77,23 @@ namespace nsTblJg
                 {
                     using (SQLiteDataReader sqlRdr = sqlCmd.ExecuteReader())
                     {
-                        jgListCount = 0;
+                        ssListCount = 0;
                         while (sqlRdr.Read())
                         {
                             //get rows
-                            jgListCount++;
+                            ssListCount++;
                         }
                     }
                 }
                 dbcDa.Close();
-                return jgListCount;
+                return ssListCount;
             }
         }
 
 
         private void recordsInList(SQLiteDataReader r)
         {
-            jgRecord jgr = new jgRecord();
+            ssRecord ssr = new ssRecord();
 
             lstJaarGegevensRecord.Clear();
 
@@ -102,69 +101,69 @@ namespace nsTblJg
             {
                 //Maak list van geselecteerde rijen
 
-                jgr.Jgeg_Id = r.GetInt32(r.GetOrdinal("Jgeg_Id"));
-                jgr.Jgeg_StatusId = r.GetInt32(r.GetOrdinal("Jgeg_StatusId"));
-                jgr.Jgeg_DispStatus = r.GetString(r.GetOrdinal("Jgeg_DispStatus"));
-                jgr.Jgeg_Omschrijving = r.GetString(r.GetOrdinal("Jgeg_Omschrijving"));
-                jgr.Jgeg_Begindatum = r.GetDateTime(r.GetOrdinal("Jgeg_Begindatum"));
-                jgr.Jgeg_Einddatum = r.GetDateTime(r.GetOrdinal("Jgeg_Einddatum"));
-                jgr.Jgeg_Mutatiedatum = r.GetDateTime(r.GetOrdinal("Jgeg_Mutatiedatum"));
-                jgr.Jgeg_Opmerking = "";
+                ssr.Saldostand_Id = r.GetInt32(r.GetOrdinal("Saldostand_Id"));
+                ssr.Saldostand_StatusId = r.GetInt32(r.GetOrdinal("Saldostand_StatusId"));
+                ssr.Saldostand_DispStatus = r.GetString(r.GetOrdinal("Saldostand_DispStatus"));
+                ssr.Saldostand_Omschrijving = r.GetString(r.GetOrdinal("Saldostand_Omschrijving"));
+                ssr.Saldostand_Begindatum = r.GetDateTime(r.GetOrdinal("Saldostand_Begindatum"));
+                ssr.Saldostand_Einddatum = r.GetDateTime(r.GetOrdinal("Saldostand_Einddatum"));
+                ssr.Saldostand_Mutatiedatum = r.GetDateTime(r.GetOrdinal("Saldostand_Mutatiedatum"));
+                ssr.Saldostand_Opmerking = "";
                 try
                 {
-                    jgr.Jgeg_Opmerking = r.GetString(r.GetOrdinal("Jgeg_Opmerking"));
+                    ssr.Saldostand_Opmerking = r.GetString(r.GetOrdinal("Saldostand_Opmerking"));
                 }
                 catch (Exception)
                 {
                 }
-                lstJaarGegevensRecord.Add(jgr);
+                lstJaarGegevensRecord.Add(ssr);
             }
 
         }
 
-        public jgRecord vanRecord(int recNr)
+        public ssRecord vanRecord(int recNr)
         {
-            jgRecord jgRec = new jgRecord();
-            jgRec.Jgeg_Id = lstJaarGegevensRecord[recNr].Jgeg_Id;
-            jgRec.Jgeg_StatusId = lstJaarGegevensRecord[recNr].Jgeg_StatusId;
-            jgRec.Jgeg_DispStatus = lstJaarGegevensRecord[recNr].Jgeg_DispStatus;
-            jgRec.Jgeg_Omschrijving = lstJaarGegevensRecord[recNr].Jgeg_Omschrijving;
-            jgRec.Jgeg_Begindatum = lstJaarGegevensRecord[recNr].Jgeg_Begindatum;
-            jgRec.Jgeg_Einddatum = lstJaarGegevensRecord[recNr].Jgeg_Einddatum;
-            jgRec.Jgeg_Mutatiedatum = lstJaarGegevensRecord[recNr].Jgeg_Mutatiedatum;
-            jgRec.Jgeg_Opmerking = lstJaarGegevensRecord[recNr].Jgeg_Opmerking;
-            return jgRec;
+            ssRecord ssRec = new ssRecord();
+            ssRec.Saldostand_Id = lstJaarGegevensRecord[recNr].Saldostand_Id;
+            ssRec.Saldostand_StatusId = lstJaarGegevensRecord[recNr].Saldostand_StatusId;
+            ssRec.Saldostand_DispStatus = lstJaarGegevensRecord[recNr].Saldostand_DispStatus;
+            ssRec.Saldostand_Omschrijving = lstJaarGegevensRecord[recNr].Saldostand_Omschrijving;
+            ssRec.Saldostand_Begindatum = lstJaarGegevensRecord[recNr].Saldostand_Begindatum;
+            ssRec.Saldostand_Einddatum = lstJaarGegevensRecord[recNr].Saldostand_Einddatum;
+            ssRec.Saldostand_Mutatiedatum = lstJaarGegevensRecord[recNr].Saldostand_Mutatiedatum;
+            ssRec.Saldostand_Opmerking = lstJaarGegevensRecord[recNr].Saldostand_Opmerking;
+            return ssRec;
         }
 
-        public jgRecord vulDefaultPd()
+        public ssRecord vulDefaultPd()
         {
             pf pf = new pf();
-            jgRecord jgRec = new jgRecord();
-            jgRec.Jgeg_StatusId = 180009;
-            jgRec.Jgeg_DispStatus = "Jaargegevens-record is leeg / Tabelinitrecord";
-            jgRec.Jgeg_Omschrijving = "2000";
-            jgRec.Jgeg_Begindatum = DateTime.Parse("2000-01-01 00:00:00");
-            jgRec.Jgeg_Einddatum = DateTime.Parse("2000-12-31 00:00:00");
-            jgRec.Jgeg_Mutatiedatum = DateTime.Parse("2000-01-01 00:00:00");
-            jgRec.Jgeg_Opmerking = pf.randomString(6);
-            return jgRec;
+            ssRecord ssRec = new ssRecord();
+            ssRec.Saldostand_StatusId = 180009;
+            ssRec.Saldostand_DispStatus = "Jaargegevens-record is leeg / Tabelinitrecord";
+            ssRec.Saldostand_Omschrijving = "2000";
+            ssRec.Saldostand_Begindatum = DateTime.Parse("2000-01-01 00:00:00");
+            ssRec.Saldostand_Einddatum = DateTime.Parse("2000-12-31 00:00:00");
+            ssRec.Saldostand_Mutatiedatum = DateTime.Parse("2000-01-01 00:00:00");
+            ssRec.Saldostand_Opmerking = pf.randomString(6);
+            return ssRec;
         }
 
-        public int newJgRecord()
+        public int newssRecord()
         {
             pf pf = new pf();
-            jgRecord dJg = new jgRecord();
-            dJg = vulDefaultPd();
-            int newJgId = new int();
+            ssRecord dss = new ssRecord();
+            dss = vulDefaultPd();
+            int newssId = new int();
             string sCs = "Data Source=" + gv.sDataFilePad + ";Version=3;New=False;";
 
             using (SQLiteConnection dbcDa = new SQLiteConnection(sCs))
             {
                 dbcDa.Open();
                 string findstring = pf.randomString(6);
-                string sqlStr = "Insert Into Jaargegevens (Jgeg_StatusId, Jgeg_DispStatus, Jgeg_Omschrijving, " +
-                                "Jgeg_Begindatum, Jgeg_Einddatum, Jgeg_Mutatiedatum, Jgeg_Opmerking) Values " +
-                                "(@2, @3, @4, @5, @6, @7, @8);";
+                string sqlStr = "Insert Into Jaargegevens (Saldostand_StatusId, Saldostand_DispStatus, Saldostand_Omschrijving, " +
+                                "Saldostand_Begindatum, Saldostand_Einddatum, Saldostand_Mutatiedatum, Saldostand_Opmerking) Values " +
+                                "(@2, @3, @4, @5, @6, @7, @8)";
                 using (SQLiteCommand sqlCmd = new SQLiteCommand(sqlStr, dbcDa))
                 {
                     SQLiteParameter p2 = new SQLiteParameter(); p2.ParameterName = "@2"; p2.Value = 180009; sqlCmd.Parameters.Add(p2);
@@ -179,30 +178,30 @@ namespace nsTblJg
                 }
 
                 // Zoek toegevoegde record
-                tblJg jg = new tblJg();
-                jg.zoekJaarGegevensRecord("Jgeg_Opmerking = " + "\"" + findstring + "\"");
-                newJgId = jg.lstJaarGegevensRecord[0].Jgeg_Id; 
+                tblSs ss = new tblSs();
+                ss.zoekJaarGegevensRecord("Saldostand_Opmerking = " + "\"" + findstring + "\"");
+                newssId = ss.lstJaarGegevensRecord[0].Saldostand_Id;
 
                 // Verwijder infor uit Opmerking-veld
                 dbcDa.Open();
-                sqlStr = "Update Jaargegevens set Jgeg_Opmerking=@8 where Jgeg_Id = @1;";
+                sqlStr = "Update Jaargegevens set Saldostand_Opmerking=@8 where Saldostand_Id = @1;";
                 using (SQLiteCommand sqlCmd = new SQLiteCommand(sqlStr, dbcDa))
                 {
-                    sqlCmd.Parameters.AddWithValue("@1", newJgId);
+                    sqlCmd.Parameters.AddWithValue("@1", newssId);
                     sqlCmd.Parameters.AddWithValue("@8", "");
                     sqlCmd.ExecuteNonQuery();
                 }
                 dbcDa.Close();
 
 
-                return newJgId;
+                return newssId;
             }
         }
 
-        public void saveRecord(int iJgId, jgRecord jgR)
+        public void saveRecord(int issId, ssRecord ssR)
         {
-            string sqlStr = "Update Jaargegevens set Jgeg_StatusId=@2, Jgeg_DispStatus=@3, Jgeg_Omschrijving=@4, Jgeg_Begindatum=@5, " +
-                            "Jgeg_Einddatum=@6, Jgeg_Mutatiedatum=@7, Jgeg_Opmerking=@8 Where Jgeg_Id=@1";
+            string sqlStr = "Update Jaargegevens set Saldostand_StatusId=@2, Saldostand_DispStatus=@3, Saldostand_Omschrijving=@4, Saldostand_Beindatum=@5, " +
+                            "Saldostand_Einddatum=@6, Saldostand_Mutatiedatum=@7, Saldostand_Opmerking=@18 Where Saldostand_Id=@1";
 
             string sCs = "Data Source=" + gv.sDataFilePad + ";Version=3;New=False;";
             using (SQLiteConnection dbcDa = new SQLiteConnection(sCs))
@@ -212,14 +211,14 @@ namespace nsTblJg
                 {
                     using (SQLiteCommand sqlCmd = new SQLiteCommand(sqlStr, dbcDa))
                     {
-                        sqlCmd.Parameters.AddWithValue("@1", iJgId);
-                        sqlCmd.Parameters.AddWithValue("@2", jgR.Jgeg_StatusId);
-                        sqlCmd.Parameters.AddWithValue("@3", jgR.Jgeg_DispStatus);
-                        sqlCmd.Parameters.AddWithValue("@4", jgR.Jgeg_Omschrijving);
-                        sqlCmd.Parameters.AddWithValue("@5", jgR.Jgeg_Begindatum);
-                        sqlCmd.Parameters.AddWithValue("@6", jgR.Jgeg_Einddatum);
-                        sqlCmd.Parameters.AddWithValue("@7", jgR.Jgeg_Mutatiedatum);
-                        sqlCmd.Parameters.AddWithValue("@8", jgR.Jgeg_Opmerking);
+                        sqlCmd.Parameters.AddWithValue("@1", issId);
+                        sqlCmd.Parameters.AddWithValue("@2", ssR.Saldostand_StatusId);
+                        sqlCmd.Parameters.AddWithValue("@3", ssR.Saldostand_DispStatus);
+                        sqlCmd.Parameters.AddWithValue("@4", ssR.Saldostand_Omschrijving);
+                        sqlCmd.Parameters.AddWithValue("@5", ssR.Saldostand_Begindatum);
+                        sqlCmd.Parameters.AddWithValue("@6", ssR.Saldostand_Einddatum);
+                        sqlCmd.Parameters.AddWithValue("@15", ssR.Saldostand_Mutatiedatum);
+                        sqlCmd.Parameters.AddWithValue("@16", ssR.Saldostand_Opmerking);
                         sqlCmd.ExecuteNonQuery();
                     }
                 }
@@ -229,7 +228,7 @@ namespace nsTblJg
             }
         }
 
-        public void deleteRecord(int iJgId)
+        public void deleteRecord(int issId)
         {
             string sCs = "Data Source=" + gv.sDataFilePad + ";Version=3;New=False;";
             using (SQLiteConnection dbcDa = new SQLiteConnection(sCs))
@@ -237,10 +236,10 @@ namespace nsTblJg
                 dbcDa.Open();
                 try
                 {
-                    string sqlStr = "Delete from Jaargegevens Where Jgeg_Id=@1;";
+                    string sqlStr = "Delete from Jaargegevens Where Saldostand_Id=@1;";
                     using (SQLiteCommand sqlCmd = new SQLiteCommand(sqlStr, dbcDa))
                     {
-                        sqlCmd.Parameters.AddWithValue("@1", iJgId);
+                        sqlCmd.Parameters.AddWithValue("@1", issId);
                         sqlCmd.ExecuteNonQuery();
                     }
                 }

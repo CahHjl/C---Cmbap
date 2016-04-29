@@ -110,7 +110,6 @@ namespace Cmbap
             jgOld.Jgeg_Opmerking = jgVan.Jgeg_Opmerking;
             bValuesChanges = false;
             setSaveButton();
-            setSaveButton();
         }
 
         private void setSaveButton()
@@ -184,7 +183,7 @@ namespace Cmbap
             st.zoekStatusRecord("Status_Code = 180002");
             jgr.Jgeg_DispStatus = st.lstStatusRecord[0].Status_Lang;
             jgr.Jgeg_Omschrijving = msktxtbxOmschrijving.Text;
-            jgr.Jgeg_Einddatum = DateTime.Parse(msktxtbxBegindatum.Text);
+            jgr.Jgeg_Begindatum = DateTime.Parse(msktxtbxBegindatum.Text);
             jgr.Jgeg_Einddatum = DateTime.Parse(msktxtbxEinddatum.Text);
             jgr.Jgeg_Mutatiedatum = DateTime.Now;
             jgr.Jgeg_Opmerking = msktxtbxOpmerking.Text;
@@ -217,8 +216,6 @@ namespace Cmbap
                     }
                 }
             }
-
-
         }
 
         private void btnEersteRecord_Click(object sender, EventArgs e)
