@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnSluitn = new System.Windows.Forms.Button();
             this.dtgrdvwProducten = new System.Windows.Forms.DataGridView();
             this.prodIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -91,6 +91,7 @@
             this.txtbxCode = new System.Windows.Forms.MaskedTextBox();
             this.txtbxVerzamelnaam = new System.Windows.Forms.MaskedTextBox();
             this.txtbxLangeNaam = new System.Windows.Forms.MaskedTextBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgrdvwProducten)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._Cmbap_dataDataSet)).BeginInit();
@@ -133,14 +134,14 @@
             this.prodMutatiedatumDataGridViewTextBoxColumn,
             this.prodOpmerkingDataGridViewTextBoxColumn});
             this.dtgrdvwProducten.DataSource = this.productBindingSource;
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgrdvwProducten.DefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgrdvwProducten.DefaultCellStyle = dataGridViewCellStyle9;
             this.dtgrdvwProducten.Location = new System.Drawing.Point(28, 41);
             this.dtgrdvwProducten.Name = "dtgrdvwProducten";
             this.dtgrdvwProducten.ReadOnly = true;
@@ -191,8 +192,8 @@
             // 
             this.prodNaamkortDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.prodNaamkortDataGridViewTextBoxColumn.DataPropertyName = "Prod_Naamkort";
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.prodNaamkortDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.prodNaamkortDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
             this.prodNaamkortDataGridViewTextBoxColumn.HeaderText = "Korte naam";
             this.prodNaamkortDataGridViewTextBoxColumn.Name = "prodNaamkortDataGridViewTextBoxColumn";
             this.prodNaamkortDataGridViewTextBoxColumn.ReadOnly = true;
@@ -202,8 +203,8 @@
             // 
             this.prodNaamlangDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.prodNaamlangDataGridViewTextBoxColumn.DataPropertyName = "Prod_Naamlang";
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.prodNaamlangDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.prodNaamlangDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.prodNaamlangDataGridViewTextBoxColumn.HeaderText = "Lange naam";
             this.prodNaamlangDataGridViewTextBoxColumn.Name = "prodNaamlangDataGridViewTextBoxColumn";
             this.prodNaamlangDataGridViewTextBoxColumn.ReadOnly = true;
@@ -213,8 +214,8 @@
             // 
             this.prodKleurDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.prodKleurDataGridViewTextBoxColumn.DataPropertyName = "Prod_Kleur";
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.prodKleurDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.prodKleurDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.prodKleurDataGridViewTextBoxColumn.HeaderText = "Kleur";
             this.prodKleurDataGridViewTextBoxColumn.Name = "prodKleurDataGridViewTextBoxColumn";
             this.prodKleurDataGridViewTextBoxColumn.ReadOnly = true;
@@ -223,8 +224,8 @@
             // prodCodeDataGridViewTextBoxColumn
             // 
             this.prodCodeDataGridViewTextBoxColumn.DataPropertyName = "Prod_Code";
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.prodCodeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.prodCodeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
             this.prodCodeDataGridViewTextBoxColumn.HeaderText = "Code";
             this.prodCodeDataGridViewTextBoxColumn.Name = "prodCodeDataGridViewTextBoxColumn";
             this.prodCodeDataGridViewTextBoxColumn.ReadOnly = true;
@@ -234,8 +235,8 @@
             // 
             this.prodSoortDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.prodSoortDataGridViewTextBoxColumn.DataPropertyName = "Prod_Soort";
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.prodSoortDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.prodSoortDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
             this.prodSoortDataGridViewTextBoxColumn.HeaderText = "Soort";
             this.prodSoortDataGridViewTextBoxColumn.Name = "prodSoortDataGridViewTextBoxColumn";
             this.prodSoortDataGridViewTextBoxColumn.ReadOnly = true;
@@ -254,10 +255,10 @@
             // 
             this.prodWaardeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.prodWaardeDataGridViewTextBoxColumn.DataPropertyName = "Prod_Waarde";
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle24.Format = "C2";
-            dataGridViewCellStyle24.NullValue = null;
-            this.prodWaardeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Format = "C2";
+            dataGridViewCellStyle6.NullValue = null;
+            this.prodWaardeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
             this.prodWaardeDataGridViewTextBoxColumn.HeaderText = "Waarde";
             this.prodWaardeDataGridViewTextBoxColumn.Name = "prodWaardeDataGridViewTextBoxColumn";
             this.prodWaardeDataGridViewTextBoxColumn.ReadOnly = true;
@@ -267,9 +268,9 @@
             // 
             this.prodAantaleenhedenperproductDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.prodAantaleenhedenperproductDataGridViewTextBoxColumn.DataPropertyName = "Prod_Aantaleenhedenperproduct";
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
-            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.prodAantaleenhedenperproductDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.prodAantaleenhedenperproductDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
             this.prodAantaleenhedenperproductDataGridViewTextBoxColumn.HeaderText = "Eenheden/ product";
             this.prodAantaleenhedenperproductDataGridViewTextBoxColumn.MaxInputLength = 100;
             this.prodAantaleenhedenperproductDataGridViewTextBoxColumn.Name = "prodAantaleenhedenperproductDataGridViewTextBoxColumn";
@@ -280,10 +281,10 @@
             // 
             this.prodWaardePerEenheidDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.prodWaardePerEenheidDataGridViewTextBoxColumn.DataPropertyName = "Prod_WaardePerEenheid";
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle26.Format = "C2";
-            dataGridViewCellStyle26.NullValue = "0";
-            this.prodWaardePerEenheidDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.Format = "C2";
+            dataGridViewCellStyle8.NullValue = "0";
+            this.prodWaardePerEenheidDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
             this.prodWaardePerEenheidDataGridViewTextBoxColumn.HeaderText = "Waarde/ eenheid";
             this.prodWaardePerEenheidDataGridViewTextBoxColumn.Name = "prodWaardePerEenheidDataGridViewTextBoxColumn";
             this.prodWaardePerEenheidDataGridViewTextBoxColumn.ReadOnly = true;
@@ -656,12 +657,23 @@
             this.txtbxLangeNaam.TabIndex = 11;
             this.txtbxLangeNaam.TextChanged += new System.EventHandler(this.txtbxLangeNaam_TextChanged);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(950, 310);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 43;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmInvoerProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(1175, 549);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.txtbxLangeNaam);
             this.Controls.Add(this.txtbxVerzamelnaam);
             this.Controls.Add(this.txtbxCode);
@@ -760,5 +772,6 @@
         private System.Windows.Forms.MaskedTextBox txtbxCode;
         private System.Windows.Forms.MaskedTextBox txtbxVerzamelnaam;
         private System.Windows.Forms.MaskedTextBox txtbxLangeNaam;
+        private System.Windows.Forms.Button button1;
     }
 }

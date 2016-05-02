@@ -78,6 +78,12 @@
     <Compile Include="Cmbap.Designer.cs">
       <DependentUpon>Cmbap.cs</DependentUpon>
     </Compile>
+    <Compile Include="datumSelectie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="datumSelectie.Designer.cs">
+      <DependentUpon>datumSelectie.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmError.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +147,9 @@
     </Compile>
     <EmbeddedResource Include="Cmbap.resx">
       <DependentUpon>Cmbap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="datumSelectie.resx">
+      <DependentUpon>datumSelectie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmError.resx">
       <DependentUpon>frmError.cs</DependentUpon>

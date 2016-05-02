@@ -13,6 +13,7 @@ using nsTblPd;
 using nsTblSt;
 using nsTblBl;
 using nsTblVr;
+using Cmbap;
 
 
 namespace InvoerProduct
@@ -584,6 +585,12 @@ namespace InvoerProduct
         {
             bValuesChanges = true;
             setSaveButton();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            datumSelectie ds = new datumSelectie();
+            ds.Show();
         }
     }
 }
