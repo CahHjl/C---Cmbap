@@ -352,23 +352,23 @@ namespace Cmbap
                         if (actueelJaarGegevensId == 0 && iId != 0)
                         {
                             actueelJaarGegevensId = iId;
-                            jg.deleteRecord(actueelJaarGegevensId);
-                            //DisplayData();
-                            bDeleteRecord = true;
-                            this.jaargegevensTableAdapter.Fill(this._Cmbap_dataDataSet.Jaargegevens);
-                            bDeleteRecord = false;
+                        }
+                        jg.deleteRecord(actueelJaarGegevensId);
+                        //DisplayData();
+                        bDeleteRecord = true;
+                        this.jaargegevensTableAdapter.Fill(this._Cmbap_dataDataSet.Jaargegevens);
+                        bDeleteRecord = false;
 
-                            int rijIndex = dtgrdvwJaarGegevens.CurrentCell.RowIndex;
-                            int JaarGegevensId = int.Parse(dtgrdvwJaarGegevens.Rows[rijIndex].Cells[0].Value.ToString());
+                        int rijIndex = dtgrdvwJaarGegevens.CurrentCell.RowIndex;
+                        int JaarGegevensId = int.Parse(dtgrdvwJaarGegevens.Rows[rijIndex].Cells[0].Value.ToString());
 
-                            jg.zoekJaarGegevensRecord("Jgeg_Id = " + dtgrdvwJaarGegevens.Rows[rijIndex].Cells[0].Value.ToString());
-                            if (jg.lstJaarGegevensRecord.Count == 1)
+                        jg.zoekJaarGegevensRecord("Jgeg_Id = " + dtgrdvwJaarGegevens.Rows[rijIndex].Cells[0].Value.ToString());
+                        if (jg.lstJaarGegevensRecord.Count == 1)
+                        {
+                            var jgVan = jg.vanRecord(0);
+                            if (actueelJaarGegevensId != jgVan.Jgeg_Id)
                             {
-                                var jgVan = jg.vanRecord(0);
-                                if (actueelJaarGegevensId != jgVan.Jgeg_Id)
-                                {
-                                    vulVelden(jgVan);
-                                }
+                                vulVelden(jgVan);
                             }
                         }
                     }

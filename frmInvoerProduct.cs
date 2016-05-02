@@ -520,23 +520,23 @@ namespace InvoerProduct
                         if (actueelProductId == 0 && iId != 0)
                         {
                             actueelProductId = iId;
-                            pd.deleteRecord(actueelProductId);
-                            //DisplayData();
-                            bDeleteRecord = true;
-                            this.productTableAdapter.Fill(this._Cmbap_dataDataSet.Product);
-                            bDeleteRecord = false;
+                        }
+                        pd.deleteRecord(actueelProductId);
+                        //DisplayData();
+                        bDeleteRecord = true;
+                        this.productTableAdapter.Fill(this._Cmbap_dataDataSet.Product);
+                        bDeleteRecord = false;
 
-                            int rijIndex = dtgrdvwProducten.CurrentCell.RowIndex;
-                            int ProductId = int.Parse(dtgrdvwProducten.Rows[rijIndex].Cells[0].Value.ToString());
+                        int rijIndex = dtgrdvwProducten.CurrentCell.RowIndex;
+                        int ProductId = int.Parse(dtgrdvwProducten.Rows[rijIndex].Cells[0].Value.ToString());
                             
-                            pd.zoekProductRecord("Prod_Id = " + dtgrdvwProducten.Rows[rijIndex].Cells[0].Value.ToString());
-                            if (pd.lstProductRecord.Count == 1)
+                        pd.zoekProductRecord("Prod_Id = " + dtgrdvwProducten.Rows[rijIndex].Cells[0].Value.ToString());
+                        if (pd.lstProductRecord.Count == 1)
+                        {
+                            var pdVan = pd.vanRecord(0);
+                            if (actueelProductId != pdVan.Prod_Id)
                             {
-                                var pdVan = pd.vanRecord(0);
-                                if (actueelProductId != pdVan.Prod_Id)
-                                {
-                                    vulVelden(pdVan);
-                                }
+                                vulVelden(pdVan);
                             }
                         }
                     }
