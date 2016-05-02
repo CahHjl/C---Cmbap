@@ -26,6 +26,7 @@ namespace nsTblJg
 
         public List<jgRecord> lstJaarGegevensRecord = new List<jgRecord>();
         public int jgListCount;
+        public int jgListTCount;
 
         public void zoekJaarGegevensRecord(string sZoekarg)
         {
@@ -79,10 +80,16 @@ namespace nsTblJg
                     using (SQLiteDataReader sqlRdr = sqlCmd.ExecuteReader())
                     {
                         jgListCount = 0;
+                        jgListTCount = 0;
                         while (sqlRdr.Read())
                         {
                             //get rows
-                            jgListCount++;
+                            jgListTCount++;
+                            if (sqlRdr.GetInt32(sqlRdr.GetOrdinal("Prod_StatusId")) != 180009)
+                            {
+                                jgListCount++;
+                            }
+
                         }
                     }
                 }
@@ -97,13 +104,20 @@ namespace nsTblJg
             jgRecord jgr = new jgRecord();
 
             lstJaarGegevensRecord.Clear();
+            jgListCount = 0;
+            jgListTCount = 0;
 
             while (r.Read())
             {
                 //Maak list van geselecteerde rijen
 
+                jgListTCount++;
                 jgr.Jgeg_Id = r.GetInt32(r.GetOrdinal("Jgeg_Id"));
                 jgr.Jgeg_StatusId = r.GetInt32(r.GetOrdinal("Jgeg_StatusId"));
+                if (r.GetInt32(r.GetOrdinal("Jgeg_StatusId")) != 180009)
+                {
+                    jgListCount++;
+                }
                 jgr.Jgeg_DispStatus = r.GetString(r.GetOrdinal("Jgeg_DispStatus"));
                 jgr.Jgeg_Omschrijving = r.GetString(r.GetOrdinal("Jgeg_Omschrijving"));
                 jgr.Jgeg_Begindatum = r.GetDateTime(r.GetOrdinal("Jgeg_Begindatum"));
@@ -160,6 +174,27 @@ namespace nsTblJg
 
             using (SQLiteConnection dbcDa = new SQLiteConnection(sCs))
             {
+                /*
+                bool found = false;
+                string sOmsch = "";
+                int iSub = 1;
+                sOmsch = "2000." + iSub.ToString("0000");
+                while (found == false)
+                {
+                    zoekJaarGegevensRecord("Jgeg_Omschrijving = " + sOmsch);
+                    if (lstJaarGegevensRecord.Count == 1)
+                    {
+                        iSub++;
+                        sOmsch = "2000." + iSub.ToString("0000");
+                    }
+                    else
+                    {
+                        found = true;
+                    }
+                }
+                */
+
+                string sYear = DateTime.Now.ToString("yyyy");
                 dbcDa.Open();
                 string findstring = pf.randomString(6);
                 string sqlStr = "Insert Into Jaargegevens (Jgeg_StatusId, Jgeg_DispStatus, Jgeg_Omschrijving, " +
@@ -169,10 +204,10 @@ namespace nsTblJg
                 {
                     SQLiteParameter p2 = new SQLiteParameter(); p2.ParameterName = "@2"; p2.Value = 180009; sqlCmd.Parameters.Add(p2);
                     SQLiteParameter p3 = new SQLiteParameter(); p3.ParameterName = "@3"; p3.Value = "Jaargegevens-record is leeg / Tabelinitrecord"; sqlCmd.Parameters.Add(p3);
-                    SQLiteParameter p4 = new SQLiteParameter(); p4.ParameterName = "@4"; p4.Value = "2000"; sqlCmd.Parameters.Add(p4);
-                    SQLiteParameter p5 = new SQLiteParameter(); p5.ParameterName = "@5"; p5.Value = DateTime.Parse("2000-01-01 00:00:00"); sqlCmd.Parameters.Add(p5);
-                    SQLiteParameter p6 = new SQLiteParameter(); p6.ParameterName = "@6"; p6.Value = DateTime.Parse("2000-12-31 00:00:00"); sqlCmd.Parameters.Add(p6);
-                    SQLiteParameter p7 = new SQLiteParameter(); p7.ParameterName = "@7"; p7.Value = DateTime.Parse("2000-01-01 00:00:00"); sqlCmd.Parameters.Add(p7);
+                    SQLiteParameter p4 = new SQLiteParameter(); p4.ParameterName = "@4"; p4.Value = sYear; sqlCmd.Parameters.Add(p4);
+                    SQLiteParameter p5 = new SQLiteParameter(); p5.ParameterName = "@5"; p5.Value = DateTime.Parse(sYear+"-01-01 00:00:00"); sqlCmd.Parameters.Add(p5);
+                    SQLiteParameter p6 = new SQLiteParameter(); p6.ParameterName = "@6"; p6.Value = DateTime.Parse(sYear+"-12-31 00:00:00"); sqlCmd.Parameters.Add(p6);
+                    SQLiteParameter p7 = new SQLiteParameter(); p7.ParameterName = "@7"; p7.Value = DateTime.Now; sqlCmd.Parameters.Add(p7);
                     SQLiteParameter p8 = new SQLiteParameter(); p8.ParameterName = "@8"; p8.Value = findstring; sqlCmd.Parameters.Add(p8);
                     sqlCmd.ExecuteNonQuery();
                     dbcDa.Close();

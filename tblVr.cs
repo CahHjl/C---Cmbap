@@ -32,6 +32,7 @@ namespace nsTblVr
 
         public List<vrRecord> lstVoorraadRecord = new List<vrRecord>();
         public int vrListCount;
+        public int vrListTCount;
         public bool bvrNaarList;
 
         public void zoekVoorraadRecord(string sZoekarg)
@@ -86,10 +87,15 @@ namespace nsTblVr
                     using (SQLiteDataReader sqlrdr = sqlCmd.ExecuteReader())
                     {
                         vrListCount = 0;
+                        vrListTCount = 0;
                         while (sqlrdr.Read())
                         {
                             //get rows
-                            vrListCount++;
+                            vrListTCount++;
+                            if (sqlrdr.GetInt32(sqlrdr.GetOrdinal("Vrrd_StatusId")) != 150009)
+                            {
+                                vrListCount++;
+                            }
                         }
                     }
                 }
@@ -103,14 +109,21 @@ namespace nsTblVr
             vrRecord vrr = new vrRecord();
 
             lstVoorraadRecord.Clear();
+            vrListCount = 0;
+            vrListTCount = 0;
 
             while (r.Read())
             {
                 //Maak list van geselecteerde rijen
+                vrListTCount++;
                 vrr.Vrrd_Id = r.GetInt32(r.GetOrdinal("Vrrd_Id"));
                 vrr.Vrrd_JgegId = r.GetInt32(r.GetOrdinal("Vrrd_JgegId"));
                 vrr.Vrrd_DispJgeg = r.GetString(r.GetOrdinal("Vrrd_DispJgeg"));
                 vrr.Vrrd_StatusId = r.GetInt32(r.GetOrdinal("Vrrd_StatusId"));
+                if (r.GetInt32(r.GetOrdinal("Vrrd_StatusId")) != 150009)
+                {
+                    vrListCount++;
+                }
                 vrr.Vrrd_DispStatus = r.GetString(r.GetOrdinal("Vrrd_DispStatus"));
                 vrr.Vrrd_ProdId=r.GetInt32(r.GetOrdinal("Vrrd_ProdId"));
                 vrr.Vrrd_DispProduct=r.GetString(r.GetOrdinal("Vrrd_DispProduct"));

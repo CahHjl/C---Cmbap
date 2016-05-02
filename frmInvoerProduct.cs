@@ -246,15 +246,43 @@ namespace InvoerProduct
 
         private void btnAnnuleren_Click(object sender, EventArgs e)
         {
-            int rijIndex = dtgrdvwProducten.CurrentCell.RowIndex;
-            actueelProductId = int.Parse(dtgrdvwProducten.Rows[rijIndex].Cells[0].Value.ToString());
-            tblPd pd = new tblPd();
-
-            pd.zoekProductRecord("Prod_Id = " + dtgrdvwProducten.Rows[rijIndex].Cells[0].Value.ToString());
-            if (pd.lstProductRecord.Count == 1)
+            if (bNewRecord == true)
             {
-                var pdVan = pd.vanRecord(0);
-                vulVelden(pdVan);
+                tblPd pd = new tblPd();
+                if (actueelProductId != 0)
+                {
+                    pd.deleteRecord(actueelProductId);
+                    bDeleteRecord = true;
+                    this.productTableAdapter.Fill(this._Cmbap_dataDataSet.Product);
+                    bDeleteRecord = false;
+
+                    int rijIndex = dtgrdvwProducten.CurrentCell.RowIndex;
+                    int ProductId = int.Parse(dtgrdvwProducten.Rows[rijIndex].Cells[0].Value.ToString());
+
+                    pd.zoekProductRecord("Prod_Id = " + dtgrdvwProducten.Rows[rijIndex].Cells[0].Value.ToString());
+                    if (pd.lstProductRecord.Count == 1)
+                    {
+                        var pdVan = pd.vanRecord(0);
+                        if (actueelProductId != pdVan.Prod_Id)
+                        {
+                            vulVelden(pdVan);
+                        }
+                    }
+                }
+
+            }
+            else
+            {
+                int rijIndex = dtgrdvwProducten.CurrentCell.RowIndex;
+                actueelProductId = int.Parse(dtgrdvwProducten.Rows[rijIndex].Cells[0].Value.ToString());
+                tblPd pd = new tblPd();
+
+                pd.zoekProductRecord("Prod_Id = " + dtgrdvwProducten.Rows[rijIndex].Cells[0].Value.ToString());
+                if (pd.lstProductRecord.Count == 1)
+                {
+                    var pdVan = pd.vanRecord(0);
+                    vulVelden(pdVan);
+                }
             }
             btnToevoegen.Enabled = true;
             btnVerwijderen.Enabled = true;
@@ -326,7 +354,7 @@ namespace InvoerProduct
 
             if (gv.instellingUserMode == 5)
             {
-                if ((pd.telProductRecord("")+1)>(gv.instellingDemoAantalProducten + gv.instellingDemoExtraAantalProducten))
+                if ((pd.telProductRecord("")+1)>(gv.instellingDemoAantalProducten + gv.instellingDemoExtraAantalProducten+1)) // +1 record is voor het initialisatierecord
                 {
                     string sAantal = "In de demo-versie kunnen maximaal \n" +(gv.instellingDemoAantalProducten + gv.instellingDemoExtraAantalProducten).ToString() + " producten worden ingevoerd.\n Maximaal aantal wordt nu overschreden!";
                     DialogResult resultAantal = MessageBox.Show(sAantal, "Maximaal aantal producten in demo-versie");
@@ -334,13 +362,17 @@ namespace InvoerProduct
                 }
             }
 
-            bNewRecord = true;
             int newPdId = pd.newPdRecord();
             actueelProductId = newPdId;
 
             pd.zoekProductRecord("Prod_Id = " + newPdId.ToString());
             var pdVan = pd.vanRecord(0);
             vulVelden(pdVan);
+            bNewRecord = true;
+            bValuesChanges = true;
+            btnAnnuleren.Enabled = true;
+            btnVerwijderen.Enabled = false;
+            setSaveButton();
         }
 
         private void VergelijkString(string s1, string s2)
@@ -408,6 +440,9 @@ namespace InvoerProduct
             bDeleteRecord = true;
             this.productTableAdapter.Fill(this._Cmbap_dataDataSet.Product);
             bDeleteRecord = false;
+            bNewRecord = false;
+            bValuesChanges = false;
+            setSaveButton();
         }
 
         private void setSaveButton()

@@ -29,12 +29,20 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnSluiten = new System.Windows.Forms.Button();
             this.dtgrdvwJaarGegevens = new System.Windows.Forms.DataGridView();
+            this.jgegIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jgegStatusIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jgegDispStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jgegOmschrijvingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jgegBegindatumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jgegEinddatumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jgegMutatiedatumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jgegOpmerkingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jaargegevensBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._Cmbap_dataDataSet = new Cmbap._Cmbap_dataDataSet();
             this.jaargegevensTableAdapter = new Cmbap._Cmbap_dataDataSetTableAdapters.JaargegevensTableAdapter();
@@ -48,14 +56,6 @@
             this.msktxtbxEinddatum = new System.Windows.Forms.MaskedTextBox();
             this.msktxtbxOmschrijving = new System.Windows.Forms.MaskedTextBox();
             this.msktxtbxOpmerking = new System.Windows.Forms.MaskedTextBox();
-            this.jgegIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jgegStatusIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jgegDispStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jgegOmschrijvingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jgegBegindatumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jgegEinddatumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jgegMutatiedatumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jgegOpmerkingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpbxCtrls = new System.Windows.Forms.GroupBox();
             this.btnEersteRecord = new System.Windows.Forms.Button();
             this.btnLaatsteRecord = new System.Windows.Forms.Button();
@@ -102,6 +102,91 @@
             this.dtgrdvwJaarGegevens.Size = new System.Drawing.Size(572, 234);
             this.dtgrdvwJaarGegevens.TabIndex = 1;
             this.dtgrdvwJaarGegevens.SelectionChanged += new System.EventHandler(this.dtgrdvwJaarGegevens_SelectionChanged);
+            // 
+            // jgegIdDataGridViewTextBoxColumn
+            // 
+            this.jgegIdDataGridViewTextBoxColumn.DataPropertyName = "Jgeg_Id";
+            this.jgegIdDataGridViewTextBoxColumn.HeaderText = "Jgeg_Id";
+            this.jgegIdDataGridViewTextBoxColumn.Name = "jgegIdDataGridViewTextBoxColumn";
+            this.jgegIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.jgegIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // jgegStatusIdDataGridViewTextBoxColumn
+            // 
+            this.jgegStatusIdDataGridViewTextBoxColumn.DataPropertyName = "Jgeg_StatusId";
+            this.jgegStatusIdDataGridViewTextBoxColumn.HeaderText = "Jgeg_StatusId";
+            this.jgegStatusIdDataGridViewTextBoxColumn.Name = "jgegStatusIdDataGridViewTextBoxColumn";
+            this.jgegStatusIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.jgegStatusIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // jgegDispStatusDataGridViewTextBoxColumn
+            // 
+            this.jgegDispStatusDataGridViewTextBoxColumn.DataPropertyName = "Jgeg_DispStatus";
+            this.jgegDispStatusDataGridViewTextBoxColumn.HeaderText = "Jgeg_DispStatus";
+            this.jgegDispStatusDataGridViewTextBoxColumn.Name = "jgegDispStatusDataGridViewTextBoxColumn";
+            this.jgegDispStatusDataGridViewTextBoxColumn.ReadOnly = true;
+            this.jgegDispStatusDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // jgegOmschrijvingDataGridViewTextBoxColumn
+            // 
+            this.jgegOmschrijvingDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.jgegOmschrijvingDataGridViewTextBoxColumn.DataPropertyName = "Jgeg_Omschrijving";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.jgegOmschrijvingDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.jgegOmschrijvingDataGridViewTextBoxColumn.HeaderText = "Omschrijving";
+            this.jgegOmschrijvingDataGridViewTextBoxColumn.MaxInputLength = 25;
+            this.jgegOmschrijvingDataGridViewTextBoxColumn.Name = "jgegOmschrijvingDataGridViewTextBoxColumn";
+            this.jgegOmschrijvingDataGridViewTextBoxColumn.ReadOnly = true;
+            this.jgegOmschrijvingDataGridViewTextBoxColumn.ToolTipText = "Geef een omschrijving voor het jaar of periode. Bijv. 2015-2016";
+            this.jgegOmschrijvingDataGridViewTextBoxColumn.Width = 135;
+            // 
+            // jgegBegindatumDataGridViewTextBoxColumn
+            // 
+            this.jgegBegindatumDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.jgegBegindatumDataGridViewTextBoxColumn.DataPropertyName = "Jgeg_Begindatum";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "dd-MM-yyyy";
+            dataGridViewCellStyle2.NullValue = null;
+            this.jgegBegindatumDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.jgegBegindatumDataGridViewTextBoxColumn.HeaderText = "Begindatum";
+            this.jgegBegindatumDataGridViewTextBoxColumn.MaxInputLength = 10;
+            this.jgegBegindatumDataGridViewTextBoxColumn.Name = "jgegBegindatumDataGridViewTextBoxColumn";
+            this.jgegBegindatumDataGridViewTextBoxColumn.ReadOnly = true;
+            this.jgegBegindatumDataGridViewTextBoxColumn.ToolTipText = "Begindatum van een jaar of periode";
+            this.jgegBegindatumDataGridViewTextBoxColumn.Width = 72;
+            // 
+            // jgegEinddatumDataGridViewTextBoxColumn
+            // 
+            this.jgegEinddatumDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.jgegEinddatumDataGridViewTextBoxColumn.DataPropertyName = "Jgeg_Einddatum";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "dd-MM-yyyy";
+            this.jgegEinddatumDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.jgegEinddatumDataGridViewTextBoxColumn.HeaderText = "Einddatum";
+            this.jgegEinddatumDataGridViewTextBoxColumn.MaxInputLength = 10;
+            this.jgegEinddatumDataGridViewTextBoxColumn.Name = "jgegEinddatumDataGridViewTextBoxColumn";
+            this.jgegEinddatumDataGridViewTextBoxColumn.ReadOnly = true;
+            this.jgegEinddatumDataGridViewTextBoxColumn.ToolTipText = "Einddatum van een jaar of periode";
+            this.jgegEinddatumDataGridViewTextBoxColumn.Width = 72;
+            // 
+            // jgegMutatiedatumDataGridViewTextBoxColumn
+            // 
+            this.jgegMutatiedatumDataGridViewTextBoxColumn.DataPropertyName = "Jgeg_Mutatiedatum";
+            this.jgegMutatiedatumDataGridViewTextBoxColumn.HeaderText = "Jgeg_Mutatiedatum";
+            this.jgegMutatiedatumDataGridViewTextBoxColumn.Name = "jgegMutatiedatumDataGridViewTextBoxColumn";
+            this.jgegMutatiedatumDataGridViewTextBoxColumn.ReadOnly = true;
+            this.jgegMutatiedatumDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // jgegOpmerkingDataGridViewTextBoxColumn
+            // 
+            this.jgegOpmerkingDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.jgegOpmerkingDataGridViewTextBoxColumn.DataPropertyName = "Jgeg_Opmerking";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.jgegOpmerkingDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            this.jgegOpmerkingDataGridViewTextBoxColumn.HeaderText = "Opmerking";
+            this.jgegOpmerkingDataGridViewTextBoxColumn.Name = "jgegOpmerkingDataGridViewTextBoxColumn";
+            this.jgegOpmerkingDataGridViewTextBoxColumn.ReadOnly = true;
+            this.jgegOpmerkingDataGridViewTextBoxColumn.Width = 250;
             // 
             // jaargegevensBindingSource
             // 
@@ -202,6 +287,7 @@
             this.msktxtbxOmschrijving.Size = new System.Drawing.Size(186, 22);
             this.msktxtbxOmschrijving.TabIndex = 18;
             this.msktxtbxOmschrijving.TextChanged += new System.EventHandler(this.msktxtbxOmschrijving_TextChanged);
+            this.msktxtbxOmschrijving.Leave += new System.EventHandler(this.msktxtbxOmschrijving_Leave);
             // 
             // msktxtbxOpmerking
             // 
@@ -212,91 +298,6 @@
             this.msktxtbxOpmerking.Size = new System.Drawing.Size(459, 22);
             this.msktxtbxOpmerking.TabIndex = 19;
             this.msktxtbxOpmerking.TextChanged += new System.EventHandler(this.msktxtbxOmschrijving_TextChanged);
-            // 
-            // jgegIdDataGridViewTextBoxColumn
-            // 
-            this.jgegIdDataGridViewTextBoxColumn.DataPropertyName = "Jgeg_Id";
-            this.jgegIdDataGridViewTextBoxColumn.HeaderText = "Jgeg_Id";
-            this.jgegIdDataGridViewTextBoxColumn.Name = "jgegIdDataGridViewTextBoxColumn";
-            this.jgegIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.jgegIdDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // jgegStatusIdDataGridViewTextBoxColumn
-            // 
-            this.jgegStatusIdDataGridViewTextBoxColumn.DataPropertyName = "Jgeg_StatusId";
-            this.jgegStatusIdDataGridViewTextBoxColumn.HeaderText = "Jgeg_StatusId";
-            this.jgegStatusIdDataGridViewTextBoxColumn.Name = "jgegStatusIdDataGridViewTextBoxColumn";
-            this.jgegStatusIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.jgegStatusIdDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // jgegDispStatusDataGridViewTextBoxColumn
-            // 
-            this.jgegDispStatusDataGridViewTextBoxColumn.DataPropertyName = "Jgeg_DispStatus";
-            this.jgegDispStatusDataGridViewTextBoxColumn.HeaderText = "Jgeg_DispStatus";
-            this.jgegDispStatusDataGridViewTextBoxColumn.Name = "jgegDispStatusDataGridViewTextBoxColumn";
-            this.jgegDispStatusDataGridViewTextBoxColumn.ReadOnly = true;
-            this.jgegDispStatusDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // jgegOmschrijvingDataGridViewTextBoxColumn
-            // 
-            this.jgegOmschrijvingDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.jgegOmschrijvingDataGridViewTextBoxColumn.DataPropertyName = "Jgeg_Omschrijving";
-            dataGridViewCellStyle49.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.jgegOmschrijvingDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle49;
-            this.jgegOmschrijvingDataGridViewTextBoxColumn.HeaderText = "Omschrijving";
-            this.jgegOmschrijvingDataGridViewTextBoxColumn.MaxInputLength = 25;
-            this.jgegOmschrijvingDataGridViewTextBoxColumn.Name = "jgegOmschrijvingDataGridViewTextBoxColumn";
-            this.jgegOmschrijvingDataGridViewTextBoxColumn.ReadOnly = true;
-            this.jgegOmschrijvingDataGridViewTextBoxColumn.ToolTipText = "Geef een omschrijving voor het jaar of periode. Bijv. 2015-2016";
-            this.jgegOmschrijvingDataGridViewTextBoxColumn.Width = 135;
-            // 
-            // jgegBegindatumDataGridViewTextBoxColumn
-            // 
-            this.jgegBegindatumDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.jgegBegindatumDataGridViewTextBoxColumn.DataPropertyName = "Jgeg_Begindatum";
-            dataGridViewCellStyle50.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle50.Format = "dd-MM-yyyy";
-            dataGridViewCellStyle50.NullValue = null;
-            this.jgegBegindatumDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle50;
-            this.jgegBegindatumDataGridViewTextBoxColumn.HeaderText = "Begindatum";
-            this.jgegBegindatumDataGridViewTextBoxColumn.MaxInputLength = 10;
-            this.jgegBegindatumDataGridViewTextBoxColumn.Name = "jgegBegindatumDataGridViewTextBoxColumn";
-            this.jgegBegindatumDataGridViewTextBoxColumn.ReadOnly = true;
-            this.jgegBegindatumDataGridViewTextBoxColumn.ToolTipText = "Begindatum van een jaar of periode";
-            this.jgegBegindatumDataGridViewTextBoxColumn.Width = 72;
-            // 
-            // jgegEinddatumDataGridViewTextBoxColumn
-            // 
-            this.jgegEinddatumDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.jgegEinddatumDataGridViewTextBoxColumn.DataPropertyName = "Jgeg_Einddatum";
-            dataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle51.Format = "dd-MM-yyyy";
-            this.jgegEinddatumDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle51;
-            this.jgegEinddatumDataGridViewTextBoxColumn.HeaderText = "Einddatum";
-            this.jgegEinddatumDataGridViewTextBoxColumn.MaxInputLength = 10;
-            this.jgegEinddatumDataGridViewTextBoxColumn.Name = "jgegEinddatumDataGridViewTextBoxColumn";
-            this.jgegEinddatumDataGridViewTextBoxColumn.ReadOnly = true;
-            this.jgegEinddatumDataGridViewTextBoxColumn.ToolTipText = "Einddatum van een jaar of periode";
-            this.jgegEinddatumDataGridViewTextBoxColumn.Width = 72;
-            // 
-            // jgegMutatiedatumDataGridViewTextBoxColumn
-            // 
-            this.jgegMutatiedatumDataGridViewTextBoxColumn.DataPropertyName = "Jgeg_Mutatiedatum";
-            this.jgegMutatiedatumDataGridViewTextBoxColumn.HeaderText = "Jgeg_Mutatiedatum";
-            this.jgegMutatiedatumDataGridViewTextBoxColumn.Name = "jgegMutatiedatumDataGridViewTextBoxColumn";
-            this.jgegMutatiedatumDataGridViewTextBoxColumn.ReadOnly = true;
-            this.jgegMutatiedatumDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // jgegOpmerkingDataGridViewTextBoxColumn
-            // 
-            this.jgegOpmerkingDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.jgegOpmerkingDataGridViewTextBoxColumn.DataPropertyName = "Jgeg_Opmerking";
-            dataGridViewCellStyle52.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.jgegOpmerkingDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle52;
-            this.jgegOpmerkingDataGridViewTextBoxColumn.HeaderText = "Opmerking";
-            this.jgegOpmerkingDataGridViewTextBoxColumn.Name = "jgegOpmerkingDataGridViewTextBoxColumn";
-            this.jgegOpmerkingDataGridViewTextBoxColumn.ReadOnly = true;
-            this.jgegOpmerkingDataGridViewTextBoxColumn.Width = 250;
             // 
             // grpbxCtrls
             // 
@@ -388,6 +389,7 @@
             this.btnVerwijderen.TabIndex = 8;
             this.btnVerwijderen.Text = "Verwijderen";
             this.btnVerwijderen.UseVisualStyleBackColor = true;
+            this.btnVerwijderen.Click += new System.EventHandler(this.btnVerwijderen_Click);
             // 
             // btnAnnuleren
             // 

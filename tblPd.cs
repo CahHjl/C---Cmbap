@@ -33,6 +33,7 @@ namespace nsTblPd
 
         public List<pdRecord> lstProductRecord = new List<pdRecord>();
         public int pdListCount;
+        public int pdListTCount;
 
         public void zoekProductRecord(string sZoekarg)
         {
@@ -86,10 +87,15 @@ namespace nsTblPd
                     using (SQLiteDataReader sqlRdr = sqlCmd.ExecuteReader())
                     {
                         pdListCount = 0;
+                        pdListTCount = 0;
                         while (sqlRdr.Read())
                         {
                             //get rows
-                            pdListCount++;
+                            pdListTCount++;
+                            if (sqlRdr.GetInt32(sqlRdr.GetOrdinal("Prod_StatusId")) != 170009)
+                            {
+                                pdListCount++;
+                            }
                         }
                     }
                 }
@@ -104,14 +110,21 @@ namespace nsTblPd
             pdRecord pdr = new pdRecord();
 
             lstProductRecord.Clear();
+            pdListCount = 0;
+            pdListTCount = 0;
 
             while (r.Read())
             {
                 //Maak list van geselecteerde rijen
 
+                pdListTCount++;
                 pdr.Prod_Id = r.GetInt32(r.GetOrdinal("Prod_Id"));
                 pdr.Prod_StatusId = r.GetInt32(r.GetOrdinal("Prod_StatusId"));
                 pdr.Prod_DispStatus = r.GetString(r.GetOrdinal("Prod_DispStatus"));
+                if (r.GetInt32(r.GetOrdinal("Prod_StatusId")) != 170009)
+                {
+                    pdListCount++;
+                }
                 pdr.Prod_Naamkort = r.GetString(r.GetOrdinal("Prod_Naamkort"));
                 pdr.Prod_Naamlang = r.GetString(r.GetOrdinal("Prod_Naamlang"));
                 pdr.Prod_Kleur = r.GetString(r.GetOrdinal("Prod_Kleur"));

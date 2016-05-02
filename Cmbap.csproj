@@ -123,6 +123,7 @@
     <Compile Include="tblBr.cs" />
     <Compile Include="tblIl.cs" />
     <Compile Include="tblJg.cs" />
+    <Compile Include="tblJs.cs" />
     <Compile Include="tblLi.cs" />
     <Compile Include="tblMo.cs" />
     <Compile Include="tblPd.cs" />

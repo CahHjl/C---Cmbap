@@ -10,24 +10,19 @@ using System.Windows.Forms;
 using nsTblVr;
 using nsTblSt;
 using nsTblJg;
+using nsTblSs;
+using nsTblJs;
 
 namespace Cmbap
 {
     public partial class frmInvoerJaarGegevens : Form
     {
-        public int actueelJaarGegevensId;
+        public int actueelJaarGegevensId = 0;
+        bool bNewRecord = false;
         public tblJg pdc = new tblJg();
-        private bool bNewRecord; // wordt op True gezet als toevoegen/nieuw wordt aangeklikt
-        private bool bDeleteRecord;
+        private bool bDeleteRecord; // wordt op True gezet als verwijderen wordt aangeklikt
         private bool bValuesChanges; // Wordt true als er waarden veranderen t.o.v. oorspronkelijk
         public tblJg.jgRecord jgOld = new tblJg.jgRecord();
-        private string sNJ;
-        private string sUit;
-        private int iUit;
-        private double dUit;
-        private decimal decUit;
-        private byte yUit;
-
 
         public frmInvoerJaarGegevens()
         {
@@ -61,7 +56,7 @@ namespace Cmbap
             toolTip1.SetToolTip(this.msktxtbxEinddatum, "Einddatum van een jaar of periode");
             toolTip1.SetToolTip(this.msktxtbxOmschrijving, "Naam/omschrijving van jaar of periode");
             toolTip1.SetToolTip(this.msktxtbxOpmerking, "Opmerking met extra (aanvullende) informatie over jaar of periode");
-
+            //actueelJaarGegevensId = 0;
         }
 
         private void vulNaMove()
@@ -73,10 +68,10 @@ namespace Cmbap
             jg.zoekJaarGegevensRecord("Jgeg_Id = " + dtgrdvwJaarGegevens.Rows[rijIndex].Cells[0].Value.ToString());
             if (jg.lstJaarGegevensRecord.Count == 1)
             {
-                var pdVan = jg.vanRecord(0);
-                if (actueelJaarGegevensId != pdVan.Jgeg_Id)
+                var jgVan = jg.vanRecord(0);
+                if (actueelJaarGegevensId != jgVan.Jgeg_Id)
                 {
-                    vulVelden(pdVan);
+                    vulVelden(jgVan);
                 }
             }
         }
@@ -123,7 +118,7 @@ namespace Cmbap
             if (this.msktxtbxOpmerking.Visible == true)
             {
                 this.msktxtbxOpmerking.Visible = false;
-                this.lblOpmerking.Text="Opm.";
+                this.lblOpmerking.Text = "Opm.";
             }
             else
             {
@@ -138,7 +133,7 @@ namespace Cmbap
             actueelJaarGegevensId = int.Parse(dtgrdvwJaarGegevens.Rows[rijIndex].Cells[0].Value.ToString());
             tblJg jg = new tblJg();
 
-            jg.zoekJaarGegevensRecord("Prod_Id = " + dtgrdvwJaarGegevens.Rows[rijIndex].Cells[0].Value.ToString());
+            jg.zoekJaarGegevensRecord("Jgeg_Id = " + dtgrdvwJaarGegevens.Rows[rijIndex].Cells[0].Value.ToString());
             if (jg.lstJaarGegevensRecord.Count == 1)
             {
                 var jgVan = jg.vanRecord(0);
@@ -153,24 +148,26 @@ namespace Cmbap
         private void btnToevoegen_Click(object sender, EventArgs e)
         {
             tblJg jg = new tblJg();
-/*
-            if (gv.instellingUserMode == 5)
-            {
-                if ((jg.telJaarGegevensRecord("") + 1) > (gv.instellingDemoAantalJaren + gv.instellingDemoExtraAantalJaren))
-                {
-                    string sAantal = "In de demo-versie kunnen maximaal \n" + (gv.instellingDemoAantalJaren + gv.instellingDemoExtraAantalJaren).ToString() + " jaren worden ingevoerd.\n Maximaal aantal wordt nu overschreden!";
-                    DialogResult resultAantal = MessageBox.Show(sAantal, "Maximaal aantal jaren in demo-versie");
-                    return;
-                }
-            }
-*/
-            bNewRecord = true;
+            /*
+                        if (gv.instellingUserMode == 5)
+                        {
+                            if ((jg.telJaarGegevensRecord("") + 1) > (gv.instellingDemoAantalJaren + gv.instellingDemoExtraAantalJaren + 1)) // +1 voor het initialisatierecord
+                            {
+                                string sAantal = "In de demo-versie kunnen maximaal \n" + (gv.instellingDemoAantalJaren + gv.instellingDemoExtraAantalJaren).ToString() + " jaren worden ingevoerd.\n Maximaal aantal wordt nu overschreden!";
+                                Result resultAantal = MessageBox.Show(sAantal, "Maximaal aantal jaren in demo-versie");
+                                return;
+                            }
+                        }
+            */
             int newJgId = jg.newJgRecord();
             actueelJaarGegevensId = newJgId;
 
             jg.zoekJaarGegevensRecord("Jgeg_Id = " + newJgId.ToString());
             var jgVan = jg.vanRecord(0);
             vulVelden(jgVan);
+            bNewRecord = true;
+            bValuesChanges = true;
+            setSaveButton();
 
         }
 
@@ -194,6 +191,9 @@ namespace Cmbap
             bDeleteRecord = true;
             this.jaargegevensTableAdapter.Fill(this._Cmbap_dataDataSet.Jaargegevens);
             bDeleteRecord = false;
+            bNewRecord = false;
+            bValuesChanges = false;
+            setSaveButton();
 
         }
 
@@ -227,10 +227,9 @@ namespace Cmbap
 
         private void frmInvoerJaarGegevens_Activated(object sender, EventArgs e)
         {
-            actueelJaarGegevensId = 0;
-            lblOpmerking.BackColor = Color.FromArgb(255, 255, 192);
+           lblOpmerking.BackColor = Color.FromArgb(255, 255, 192);
         }
-
+        
         private void btnLaatsteRecord_Click(object sender, EventArgs e)
         {
             int recCount = this.dtgrdvwJaarGegevens.RowCount;
@@ -275,6 +274,107 @@ namespace Cmbap
                     return;
                 }
             }
+        }
+
+        private void btnOpmerking_Click(object sender, EventArgs e)
+        {
+            if (this.msktxtbxOpmerking.Visible == true)
+            {
+                this.msktxtbxOpmerking.Visible = false;
+                this.lblOpmerking.Text = "Opm.";
+            }
+            else
+            {
+                this.msktxtbxOpmerking.Visible = true;
+                this.lblOpmerking.Text = "Opmerking:";
+            }
+        }
+
+        private void msktxtbxOmschrijving_Leave(object sender, EventArgs e)
+        {
+            tblJg jg = new tblJg();
+            int rijIndex = dtgrdvwJaarGegevens.CurrentCell.RowIndex;
+            jg.zoekJaarGegevensRecord("Jgeg_Omschrijving = " + msktxtbxOmschrijving.Text);
+            if (jg.lstJaarGegevensRecord.Count == 1)
+            {
+                var jgVan = jg.vanRecord(0);
+                if (actueelJaarGegevensId != jgVan.Jgeg_Id)
+                {
+                    MessageBox.Show("Omschrijving komt al voor!", "Controle invoer");
+                    return;
+                }
+            }
+        }
+
+        private void btnVerwijderen_Click(object sender, EventArgs e)
+        {
+            if (actueelJaarGegevensId != 0)
+            {
+                tblVr vr = new tblVr();
+                int ssAantal;
+                int vrAantal;
+                int jsAantal;
+
+                // Controle gebruik in voorraad
+                vr.bvrNaarList = false;
+                vrAantal = vr.telVoorraadRecord("Vrrd_JgegId = " + actueelJaarGegevensId.ToString());
+
+                // Controle gebruik in Jaarsaldo
+                tblJs js = new tblJs();
+                jsAantal = js.telJaarSaldoRecord("Jsal_JgegId = " + actueelJaarGegevensId.ToString());
+
+                // Controle gebruik in Saldostand
+                tblSs ss = new tblSs();
+                ssAantal = ss.telSaldoStandRecord("Saldostand_JgegId = " + actueelJaarGegevensId.ToString());
+
+                string sGebruik = "";
+                if (vrAantal != 0 && ssAantal != 0 && jsAantal != 0)
+                {
+                    sGebruik = "Jaargegevens " + msktxtbxOmschrijving.Text + " \nis nog in gebruik bij: \n\n";
+                    if (vrAantal!=0) { sGebruik = sGebruik + "- " + vrAantal.ToString() + " voorraadrecords" + "\n"; }
+                    if (jsAantal != 0) { sGebruik = sGebruik + "- " + jsAantal.ToString() + " jaarsaldorecords" + "\n"; }
+                    if (ssAantal != 0) { sGebruik = sGebruik + "- " + ssAantal.ToString() + " saldostandrecords" + "\n"; }
+                    sGebruik=sGebruik+"Verwijderen is niet mogelijk!";
+                }
+
+                if (sGebruik != "")
+                {
+                    DialogResult resultDelete = MessageBox.Show(sGebruik, "Jaargegevens verwijderen?");
+                }
+                else
+                {
+                    int iId = actueelJaarGegevensId;
+                    string sJaarGegevens = "Wilt u deze jaargegevens (" + msktxtbxOmschrijving.Text + ") verwijderen?";
+                    DialogResult resultDelete = MessageBox.Show(sJaarGegevens, "Jaargegevens verwijderen?", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                    if (resultDelete == DialogResult.Yes)
+                    {
+                        tblJg jg = new tblJg();
+                        if (actueelJaarGegevensId == 0 && iId != 0)
+                        {
+                            actueelJaarGegevensId = iId;
+                            jg.deleteRecord(actueelJaarGegevensId);
+                            //DisplayData();
+                            bDeleteRecord = true;
+                            this.jaargegevensTableAdapter.Fill(this._Cmbap_dataDataSet.Jaargegevens);
+                            bDeleteRecord = false;
+
+                            int rijIndex = dtgrdvwJaarGegevens.CurrentCell.RowIndex;
+                            int JaarGegevensId = int.Parse(dtgrdvwJaarGegevens.Rows[rijIndex].Cells[0].Value.ToString());
+
+                            jg.zoekJaarGegevensRecord("Jgeg_Id = " + dtgrdvwJaarGegevens.Rows[rijIndex].Cells[0].Value.ToString());
+                            if (jg.lstJaarGegevensRecord.Count == 1)
+                            {
+                                var jgVan = jg.vanRecord(0);
+                                if (actueelJaarGegevensId != jgVan.Jgeg_Id)
+                                {
+                                    vulVelden(jgVan);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
         }
     }
 }

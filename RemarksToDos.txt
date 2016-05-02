@@ -27,4 +27,9 @@ Done
 frmInvoerJaarGegevens
 * Method na klik op delete-buttton
 
+Alle tbl's
+- Tellen van records verdeeld over totaal en zonder ...009
+	Gedaan bij: tblJg, tblPd, tblVr, tblJs, tblSs
+- Verwijderen Jg na annuleren
+
 

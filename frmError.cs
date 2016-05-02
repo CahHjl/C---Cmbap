@@ -24,8 +24,13 @@ namespace Error
 
         public void setParams(string schermTitel, string kopTekst, string errorTekst, string annulerenTekst, string doorgaanTekst, string sluitenTekst, Boolean stopProgramma, int soortMelding)
         {
-            // soortMelding: 1=Fatale fout, 2 = fout en doorgaan, 3 = alleen melding)
+            // soortMelding: 1=Fatale fout, 2 = fout en doorgaan, 3 = alleen melding, 4 = aanwijzingen, 0 = sluit scherm)
 
+            if (soortMelding == 0)
+            {
+                this.Close();
+                return;
+            }
             this.Text = schermTitel;
             skopTekst = "Programma-fout";
             btnAnnuleren.Text = "Annuleren";
