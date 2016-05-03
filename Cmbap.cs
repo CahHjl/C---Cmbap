@@ -130,11 +130,12 @@ namespace Cmbap
         private void verkoopPerProductToolStripMenuItem_Click(object sender, EventArgs e)
         {
             gv.datumSelectieHeader = "Verkoop per product";
-            datumSelectie ds = new datumSelectie();
-            ds.Show();
+            datumSelectie datumSelectie = new datumSelectie();
+            datumSelectie.ShowDialog();
             gv.selectedProduct = 0;
-            productSelectie ps = new productSelectie();
-            Console.WriteLine();
+            productSelectie productSelectie = new productSelectie();
+            productSelectie.ShowDialog();
+            //rptVerkoopPerProduct.show;
         }
     }
 }

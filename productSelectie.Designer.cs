@@ -35,9 +35,9 @@
             // btnProductSelectie
             // 
             this.btnProductSelectie.Enabled = false;
-            this.btnProductSelectie.Location = new System.Drawing.Point(19, 251);
+            this.btnProductSelectie.Location = new System.Drawing.Point(19, 166);
             this.btnProductSelectie.Name = "btnProductSelectie";
-            this.btnProductSelectie.Size = new System.Drawing.Size(274, 31);
+            this.btnProductSelectie.Size = new System.Drawing.Size(142, 47);
             this.btnProductSelectie.TabIndex = 0;
             this.btnProductSelectie.Text = "Selecteer product en sluit venster";
             this.btnProductSelectie.UseVisualStyleBackColor = true;
@@ -49,7 +49,7 @@
             this.lstbxProduct.ItemHeight = 16;
             this.lstbxProduct.Location = new System.Drawing.Point(19, 12);
             this.lstbxProduct.Name = "lstbxProduct";
-            this.lstbxProduct.Size = new System.Drawing.Size(274, 228);
+            this.lstbxProduct.Size = new System.Drawing.Size(142, 148);
             this.lstbxProduct.TabIndex = 1;
             this.lstbxProduct.SelectedIndexChanged += new System.EventHandler(this.lstbxProduct_SelectedIndexChanged);
             // 
@@ -57,7 +57,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(305, 294);
+            this.ClientSize = new System.Drawing.Size(182, 222);
             this.Controls.Add(this.lstbxProduct);
             this.Controls.Add(this.btnProductSelectie);
             this.MaximizeBox = false;

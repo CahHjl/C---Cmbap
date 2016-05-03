@@ -32,5 +32,15 @@ namespace Cmbap.Properties {
                 return ((string)(this["Cmbap_dataConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("data source=F:\\Develop\\C#.net\\Projecten\\LoadEnSave\\bin\\Debug\\Cmbap-data.db")]
+        public string Cmbap_dataConnectionString1 {
+            get {
+                return ((string)(this["Cmbap_dataConnectionString1"]));
+            }
+        }
     }
 }

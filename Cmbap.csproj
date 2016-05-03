@@ -120,6 +120,12 @@
     <Compile Include="ovzProduct.Designer.cs">
       <DependentUpon>ovzProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="ovzVerkoopPerProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ovzVerkoopPerProduct.Designer.cs">
+      <DependentUpon>ovzVerkoopPerProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="PF.cs" />
     <Compile Include="productSelectie.cs">
       <SubType>Form</SubType>
@@ -151,6 +157,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_Cmbap_dataDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="_Cmbap_dataDsBsBstlr.cs">
+      <DependentUpon>_Cmbap_dataDsBsBstlr.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_Cmbap_dataDsBsBstlr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_Cmbap_dataDsBsBstlr.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Cmbap.resx">
       <DependentUpon>Cmbap.cs</DependentUpon>
     </EmbeddedResource>
@@ -174,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ovzProduct.resx">
       <DependentUpon>ovzProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ovzVerkoopPerProduct.resx">
+      <DependentUpon>ovzVerkoopPerProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="productSelectie.resx">
       <DependentUpon>productSelectie.cs</DependentUpon>
@@ -209,6 +226,17 @@
     </None>
     <None Include="_Cmbap_dataDataSet.xss">
       <DependentUpon>_Cmbap_dataDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="_Cmbap_dataDsBsBstlr.xsc">
+      <DependentUpon>_Cmbap_dataDsBsBstlr.xsd</DependentUpon>
+    </None>
+    <None Include="_Cmbap_dataDsBsBstlr.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_Cmbap_dataDsBsBstlr.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_Cmbap_dataDsBsBstlr.xss">
+      <DependentUpon>_Cmbap_dataDsBsBstlr.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
