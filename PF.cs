@@ -11,6 +11,7 @@ using tblLi;
 using Error;
 using tblMo;
 using nsTblIl;
+using nsTblJg;
 
 namespace ProcFunc
 {
@@ -32,10 +33,22 @@ namespace ProcFunc
 
         public void Init_vars()
         {
-            gv.sProgPad = Application.StartupPath + "\\";
-            gv.sDataPad = gv.sProgPad;
-            gv.sDataFilePad = gv.sDataPad + "Cmbap-Data.db";
-            gv.sLicentieFilePad = gv.sDataPad + "Cmbap-Licentie.db";
+            if (gv.bInit == false)
+            {
+                gv.sProgPad = Application.StartupPath + "\\";
+                gv.sDataPad = gv.sProgPad;
+                gv.sDataFilePad = gv.sDataPad + "Cmbap-Data.db";
+                gv.sLicentieFilePad = gv.sDataPad + "Cmbap-Licentie.db";
+
+                tblJg jg = new tblJg();
+                jg.zoekJaarGegevensRecord("Jgeg_StatusId<>180009");
+                if (jg.jgListCount != 0)
+                {
+                    gv.beginDatumPeriode = jg.lstJaarGegevensRecord[jg.jgListCount - 1].Jgeg_Begindatum;
+                    gv.eindDatumPeriode = jg.lstJaarGegevensRecord[jg.jgListCount - 1].Jgeg_Einddatum;
+                }
+                gv.bInit = true;
+            }
             tblIl il = new tblIl();
             tblIl.ilRecord ilr = new tblIl.ilRecord();
             il.zoekInstellingRecord("Instl_Naam = " + "\"" + "Demo_Product_Aantal"+"\"");
@@ -51,6 +64,7 @@ namespace ProcFunc
                 gv.instellingDemoExtraAantalProducten = (int)ilr.Instl_Integer;
                 gv.instellingUserMode = (int)ilr.Instl_Integer;
             }
+
         }
 
         public string DTToS(DateTime DT)

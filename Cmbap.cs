@@ -126,5 +126,15 @@ namespace Cmbap
             frmInvoerJaarGegevens frmInvoerJaarGegevens = new frmInvoerJaarGegevens();
             frmInvoerJaarGegevens.Show();
         }
+
+        private void verkoopPerProductToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            gv.datumSelectieHeader = "Verkoop per product";
+            datumSelectie ds = new datumSelectie();
+            ds.Show();
+            gv.selectedProduct = 0;
+            productSelectie ps = new productSelectie();
+            Console.WriteLine();
+        }
     }
 }

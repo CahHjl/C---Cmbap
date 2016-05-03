@@ -337,6 +337,7 @@
             this.verkoopPerProductToolStripMenuItem.Name = "verkoopPerProductToolStripMenuItem";
             this.verkoopPerProductToolStripMenuItem.Size = new System.Drawing.Size(284, 26);
             this.verkoopPerProductToolStripMenuItem.Text = "Verkoop per product";
+            this.verkoopPerProductToolStripMenuItem.Click += new System.EventHandler(this.verkoopPerProductToolStripMenuItem_Click);
             // 
             // voorraadmutatiesPerProductToolStripMenuItem
             // 

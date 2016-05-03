@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using nsTblJg;
+using globalVars;
 
 namespace Cmbap
 {
@@ -27,6 +28,7 @@ namespace Cmbap
 
         private void datumSelectie_Activated(object sender, EventArgs e)
         {
+            datumSelectie.ActiveForm.Text = gv.datumSelectieHeader;
             lstbxJaargegevens.Items.Clear();
 
             tblJg jg = new tblJg();
@@ -38,6 +40,15 @@ namespace Cmbap
                     lstbxJaargegevens.Items.Add(jg.lstJaarGegevensRecord[i].Jgeg_Omschrijving);
                 }
             }
+            else
+            {
+                lstbxJaargegevens.Items.Add("Geen jaren/periodes gevonden!");
+            }
+
+            dttmpckrBegindatum.Value = gv.beginDatumPeriode;
+            dttmpckrEinddatum.Value = gv.eindDatumPeriode;
+            dttmpckrBegindatum.Value = gv.beginDatumPeriode;
+            dttmpckrEinddatum.Value = gv.eindDatumPeriode;
 
         }
 
@@ -49,9 +60,26 @@ namespace Cmbap
             jg.zoekJaarGegevensRecord("Jgeg_Omschrijving = "+"\""+jgo+"\";");
             if (jg.jgListCount == 1)
             {
-                msktxtbxBegindatum.Text = jg.lstJaarGegevensRecord[0].Jgeg_Begindatum.ToString("dd-MM-yyyy");
-                msktxtbxEinddatum.Text = jg.lstJaarGegevensRecord[0].Jgeg_Einddatum.ToString("dd-MM-yyyy");
+                dttmpckrBegindatum.Value=jg.lstJaarGegevensRecord[0].Jgeg_Begindatum;
+                dttmpckrEinddatum.Value=jg.lstJaarGegevensRecord[0].Jgeg_Einddatum;
             }
+        }
+
+        private void btnSelecteerPeriode_Click(object sender, EventArgs e)
+        {
+            //gv.beginDatumPeriode = DateTime.Parse(msktxtbxBegindatum.Text);
+            //gv.eindDatumPeriode = DateTime.Parse(msktxtbxEinddatum.Text);
+            this.Close();
+        }
+
+        private void dttmpckrEinddatum_ValueChanged(object sender, EventArgs e)
+        {
+            gv.eindDatumPeriode = dttmpckrEinddatum.Value;
+        }
+
+        private void dttmpckrBegindatum_ValueChanged(object sender, EventArgs e)
+        {
+            gv.beginDatumPeriode = dttmpckrBegindatum.Value;
         }
     }
 }

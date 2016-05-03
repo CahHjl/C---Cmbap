@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnSluiten = new System.Windows.Forms.Button();
             this.dtgrdvwJaarGegevens = new System.Windows.Forms.DataGridView();
             this.jgegIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,7 +76,7 @@
             this.btnSluiten.Location = new System.Drawing.Point(525, 524);
             this.btnSluiten.Name = "btnSluiten";
             this.btnSluiten.Size = new System.Drawing.Size(75, 23);
-            this.btnSluiten.TabIndex = 0;
+            this.btnSluiten.TabIndex = 15;
             this.btnSluiten.Text = "Sluiten";
             this.btnSluiten.UseVisualStyleBackColor = true;
             this.btnSluiten.Click += new System.EventHandler(this.btnSluiten_Click);
@@ -131,8 +131,8 @@
             // 
             this.jgegOmschrijvingDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.jgegOmschrijvingDataGridViewTextBoxColumn.DataPropertyName = "Jgeg_Omschrijving";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.jgegOmschrijvingDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.jgegOmschrijvingDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
             this.jgegOmschrijvingDataGridViewTextBoxColumn.HeaderText = "Omschrijving";
             this.jgegOmschrijvingDataGridViewTextBoxColumn.MaxInputLength = 25;
             this.jgegOmschrijvingDataGridViewTextBoxColumn.Name = "jgegOmschrijvingDataGridViewTextBoxColumn";
@@ -144,10 +144,10 @@
             // 
             this.jgegBegindatumDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.jgegBegindatumDataGridViewTextBoxColumn.DataPropertyName = "Jgeg_Begindatum";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "dd-MM-yyyy";
-            dataGridViewCellStyle2.NullValue = null;
-            this.jgegBegindatumDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "dd-MM-yyyy";
+            dataGridViewCellStyle6.NullValue = null;
+            this.jgegBegindatumDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
             this.jgegBegindatumDataGridViewTextBoxColumn.HeaderText = "Begindatum";
             this.jgegBegindatumDataGridViewTextBoxColumn.MaxInputLength = 10;
             this.jgegBegindatumDataGridViewTextBoxColumn.Name = "jgegBegindatumDataGridViewTextBoxColumn";
@@ -159,9 +159,9 @@
             // 
             this.jgegEinddatumDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.jgegEinddatumDataGridViewTextBoxColumn.DataPropertyName = "Jgeg_Einddatum";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "dd-MM-yyyy";
-            this.jgegEinddatumDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle7.Format = "dd-MM-yyyy";
+            this.jgegEinddatumDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
             this.jgegEinddatumDataGridViewTextBoxColumn.HeaderText = "Einddatum";
             this.jgegEinddatumDataGridViewTextBoxColumn.MaxInputLength = 10;
             this.jgegEinddatumDataGridViewTextBoxColumn.Name = "jgegEinddatumDataGridViewTextBoxColumn";
@@ -181,8 +181,8 @@
             // 
             this.jgegOpmerkingDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.jgegOpmerkingDataGridViewTextBoxColumn.DataPropertyName = "Jgeg_Opmerking";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.jgegOpmerkingDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.jgegOpmerkingDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
             this.jgegOpmerkingDataGridViewTextBoxColumn.HeaderText = "Opmerking";
             this.jgegOpmerkingDataGridViewTextBoxColumn.Name = "jgegOpmerkingDataGridViewTextBoxColumn";
             this.jgegOpmerkingDataGridViewTextBoxColumn.ReadOnly = true;
@@ -255,7 +255,7 @@
             this.lblOpmerking.Location = new System.Drawing.Point(28, 494);
             this.lblOpmerking.Name = "lblOpmerking";
             this.lblOpmerking.Size = new System.Drawing.Size(42, 17);
-            this.lblOpmerking.TabIndex = 10;
+            this.lblOpmerking.TabIndex = 13;
             this.lblOpmerking.Text = "Opm.";
             this.lblOpmerking.Click += new System.EventHandler(this.lblOpmerking_Click);
             // 
@@ -265,7 +265,7 @@
             this.msktxtbxBegindatum.Mask = "00/00/0000";
             this.msktxtbxBegindatum.Name = "msktxtbxBegindatum";
             this.msktxtbxBegindatum.Size = new System.Drawing.Size(81, 22);
-            this.msktxtbxBegindatum.TabIndex = 16;
+            this.msktxtbxBegindatum.TabIndex = 11;
             this.msktxtbxBegindatum.ValidatingType = typeof(System.DateTime);
             this.msktxtbxBegindatum.TextChanged += new System.EventHandler(this.msktxtbxOmschrijving_TextChanged);
             // 
@@ -275,7 +275,7 @@
             this.msktxtbxEinddatum.Mask = "00/00/0000";
             this.msktxtbxEinddatum.Name = "msktxtbxEinddatum";
             this.msktxtbxEinddatum.Size = new System.Drawing.Size(81, 22);
-            this.msktxtbxEinddatum.TabIndex = 17;
+            this.msktxtbxEinddatum.TabIndex = 12;
             this.msktxtbxEinddatum.ValidatingType = typeof(System.DateTime);
             this.msktxtbxEinddatum.TextChanged += new System.EventHandler(this.msktxtbxOmschrijving_TextChanged);
             // 
@@ -285,7 +285,7 @@
             this.msktxtbxOmschrijving.Mask = "&&&&&&&&&&&&&&&&&&&&&&&&&";
             this.msktxtbxOmschrijving.Name = "msktxtbxOmschrijving";
             this.msktxtbxOmschrijving.Size = new System.Drawing.Size(186, 22);
-            this.msktxtbxOmschrijving.TabIndex = 18;
+            this.msktxtbxOmschrijving.TabIndex = 10;
             this.msktxtbxOmschrijving.TextChanged += new System.EventHandler(this.msktxtbxOmschrijving_TextChanged);
             this.msktxtbxOmschrijving.Leave += new System.EventHandler(this.msktxtbxOmschrijving_Leave);
             // 
@@ -296,7 +296,7 @@
     "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&";
             this.msktxtbxOpmerking.Name = "msktxtbxOpmerking";
             this.msktxtbxOpmerking.Size = new System.Drawing.Size(459, 22);
-            this.msktxtbxOpmerking.TabIndex = 19;
+            this.msktxtbxOpmerking.TabIndex = 14;
             this.msktxtbxOpmerking.TextChanged += new System.EventHandler(this.msktxtbxOmschrijving_TextChanged);
             // 
             // grpbxCtrls
@@ -323,7 +323,7 @@
             this.btnEersteRecord.Location = new System.Drawing.Point(238, 24);
             this.btnEersteRecord.Name = "btnEersteRecord";
             this.btnEersteRecord.Size = new System.Drawing.Size(26, 26);
-            this.btnEersteRecord.TabIndex = 3;
+            this.btnEersteRecord.TabIndex = 4;
             this.btnEersteRecord.UseVisualStyleBackColor = true;
             this.btnEersteRecord.Click += new System.EventHandler(this.btnEersteRecord_Click);
             // 
@@ -334,7 +334,7 @@
             this.btnLaatsteRecord.Location = new System.Drawing.Point(334, 24);
             this.btnLaatsteRecord.Name = "btnLaatsteRecord";
             this.btnLaatsteRecord.Size = new System.Drawing.Size(26, 26);
-            this.btnLaatsteRecord.TabIndex = 6;
+            this.btnLaatsteRecord.TabIndex = 7;
             this.btnLaatsteRecord.UseVisualStyleBackColor = true;
             this.btnLaatsteRecord.Click += new System.EventHandler(this.btnLaatsteRecord_Click);
             // 
@@ -345,7 +345,7 @@
             this.btnVorigRecord.Location = new System.Drawing.Point(270, 24);
             this.btnVorigRecord.Name = "btnVorigRecord";
             this.btnVorigRecord.Size = new System.Drawing.Size(26, 26);
-            this.btnVorigRecord.TabIndex = 4;
+            this.btnVorigRecord.TabIndex = 5;
             this.btnVorigRecord.UseVisualStyleBackColor = true;
             this.btnVorigRecord.Click += new System.EventHandler(this.btnVorigRecord_Click);
             // 
@@ -356,7 +356,7 @@
             this.btnVolgendRecord.Location = new System.Drawing.Point(302, 24);
             this.btnVolgendRecord.Name = "btnVolgendRecord";
             this.btnVolgendRecord.Size = new System.Drawing.Size(26, 26);
-            this.btnVolgendRecord.TabIndex = 5;
+            this.btnVolgendRecord.TabIndex = 6;
             this.btnVolgendRecord.UseVisualStyleBackColor = true;
             this.btnVolgendRecord.Click += new System.EventHandler(this.btnVolgendRecord_Click);
             // 
@@ -366,7 +366,7 @@
             this.btnOpslaan.Location = new System.Drawing.Point(142, 21);
             this.btnOpslaan.Name = "btnOpslaan";
             this.btnOpslaan.Size = new System.Drawing.Size(90, 33);
-            this.btnOpslaan.TabIndex = 2;
+            this.btnOpslaan.TabIndex = 3;
             this.btnOpslaan.Text = "Opslaan";
             this.btnOpslaan.UseVisualStyleBackColor = true;
             this.btnOpslaan.Click += new System.EventHandler(this.btnOpslaan_Click);
@@ -376,7 +376,7 @@
             this.btnToevoegen.Location = new System.Drawing.Point(6, 21);
             this.btnToevoegen.Name = "btnToevoegen";
             this.btnToevoegen.Size = new System.Drawing.Size(126, 33);
-            this.btnToevoegen.TabIndex = 1;
+            this.btnToevoegen.TabIndex = 2;
             this.btnToevoegen.Text = "Nieuw jaar";
             this.btnToevoegen.UseVisualStyleBackColor = true;
             this.btnToevoegen.Click += new System.EventHandler(this.btnToevoegen_Click);
@@ -386,7 +386,7 @@
             this.btnVerwijderen.Location = new System.Drawing.Point(463, 21);
             this.btnVerwijderen.Name = "btnVerwijderen";
             this.btnVerwijderen.Size = new System.Drawing.Size(103, 33);
-            this.btnVerwijderen.TabIndex = 8;
+            this.btnVerwijderen.TabIndex = 9;
             this.btnVerwijderen.Text = "Verwijderen";
             this.btnVerwijderen.UseVisualStyleBackColor = true;
             this.btnVerwijderen.Click += new System.EventHandler(this.btnVerwijderen_Click);
@@ -397,7 +397,7 @@
             this.btnAnnuleren.Location = new System.Drawing.Point(366, 21);
             this.btnAnnuleren.Name = "btnAnnuleren";
             this.btnAnnuleren.Size = new System.Drawing.Size(81, 33);
-            this.btnAnnuleren.TabIndex = 7;
+            this.btnAnnuleren.TabIndex = 8;
             this.btnAnnuleren.Text = "Annuleren";
             this.btnAnnuleren.UseVisualStyleBackColor = true;
             this.btnAnnuleren.Click += new System.EventHandler(this.btnAnnuleren_Click);
@@ -424,7 +424,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmInvoerJaarGegevens";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Invoer/wijzigen jaargegevens";
             this.Activated += new System.EventHandler(this.frmInvoerJaarGegevens_Activated);
             this.Load += new System.EventHandler(this.frmInvoerJaarGegevens_Load);

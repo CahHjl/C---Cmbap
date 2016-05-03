@@ -47,6 +47,11 @@ namespace globalVars
         public static int instellingDemoAantalProducten;
         public static int instellingDemoExtraAantalProducten;
         public static int instellingUserMode;
+        public static DateTime beginDatumPeriode;
+        public static DateTime eindDatumPeriode;
+        public static bool bInit;
+        public static string datumSelectieHeader;
+        public static int selectedProduct;
      }
 
     class moVars
