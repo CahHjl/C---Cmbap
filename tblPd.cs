@@ -104,7 +104,6 @@ namespace nsTblPd
             }
         }
 
-
         private void recordsInList(SQLiteDataReader r)
         {
             pdRecord pdr = new pdRecord();

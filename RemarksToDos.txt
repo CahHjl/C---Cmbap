@@ -26,8 +26,8 @@ Done
 
 Alle tbl's
 - Tellen van records verdeeld over totaal en zonder ...009
-	Gedaan bij: tblJg, tblPd, tblJs, tblBl 
-	Te doen:	tblAg, tblBg, tblBr, tblBs, tblCt, tblDf, tblEm, tblEa, tblGb, tblHc, tblHu, tblIl, tblKb, tblLc, tblLg,
+	Gedaan bij: tblJg, tblPd, tblJs, tblBl, tblBs
+	Te doen:	tblAg, tblBg, tblBr, tblCt, tblDf, tblEm, tblEa, tblGb, tblHc, tblHu, tblIl, tblKb, tblLc, tblLg,
 				tblPe, tblSt, tblSc, tblSu, tblTl, tblUg, tblUg, tblVw, tblVr, tblLi, tblMo, tblSs
 
 
