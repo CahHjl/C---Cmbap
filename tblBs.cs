@@ -24,25 +24,23 @@ namespace nsTblBs
             public int Bstl_VerwerkperiodeId { get; set; }
             public DateTime Bstl_valutadatum { get; set; }
             public decimal Bstl_Bestelbedrag { get; set; }
-
-
-            public long Bstlr_Beginnr { get; set; }
-            public long Bstlr_Eindnr { get; set; }
-            public long Bstlr_Voorraad { get; set; }
-            public long Bstlr_Extranr1 { get; set; }
-            public long Bstlr_Extranr2 { get; set; }
-            public long Bstlr_Extranr3 { get; set; }
-            public DateTime Bstlr_Mutatiedatum { get; set; }
-            public string Bstlr_Opmerking { get; set; }
+            public decimal Bstl_Diversen { get; set; }
+            public int Bstl_DiversenId { get; set; }
+            public string Bstl_DispDiversen { get; set; }
+            public decimal Bstl_Verschil { get; set; }
+            public int Bstl_VerschilId { get; set; }
+            public string Bstl_DispVerschil { get; set; }
+            public decimal Bstl_Vastekostenperbestelling { get; set; }
+            public int Bstl_BonnengevraagdJN { get; set; }
+            public DateTime Bstl_Mutatiedatum { get; set; }
+            public string Bstl_Opmerking { get; set; }
         }
 
+        public List<bsRecord> lstBestellingRecord = new List<bsRecord>();
+        public int bsListCount;
+        public int bsListTCount;
 
-
-        public List<blRecord> lstBestelregelRecord = new List<blRecord>();
-        public int blListCount;
-        public int blListTCount;
-
-        public void zoekBestelregelRecord(string sZoekarg)
+        public void zoekBestellingRecord(string sZoekarg)
         {
             string sCs = "Data Source=" + gv.sDataFilePad + ";Version=3;New=False;";
 
@@ -50,15 +48,15 @@ namespace nsTblBs
             {
                 dbcDa.Open();
 
-                // Zoek record in Bestelregeltabel met extra zoekargument
+                // Zoek record in Bestellingtabel met extra zoekargument
                 string sqlStr;
                 if (sZoekarg != "")
                 {
-                    sqlStr = "Select * from Bestelregel Where " + sZoekarg + ";";
+                    sqlStr = "Select * from Bestelling Where " + sZoekarg + ";";
                 }
                 else
                 {
-                    sqlStr = "Select * from Bestelregel;";
+                    sqlStr = "Select * from Bestelling;";
                 }
 
                 using (SQLiteCommand sqlCmd = new SQLiteCommand(sqlStr, dbcDa))
@@ -72,7 +70,7 @@ namespace nsTblBs
             }
         }
 
-        public int telBestelregelRecord(string sZoekarg)
+        public int telBestellingRecord(string sZoekarg)
         {
             string sCs = "Data Source=" + gv.sDataFilePad + ";Version=3;New=False;";
 
@@ -80,186 +78,209 @@ namespace nsTblBs
             {
                 dbcDa.Open();
 
-                // Zoek record in Bestelregeltabel met extra zoekargument
+                // Zoek record in Bestellingtabel met extra zoekargument
                 string sqlStr;
                 if (sZoekarg != "")
                 {
-                    sqlStr = "Select * from Bestelregel Where " + sZoekarg + ";";
+                    sqlStr = "Select * from Bestelling Where " + sZoekarg + ";";
                 }
                 else
                 {
-                    sqlStr = "Select * from Bestelregel;";
+                    sqlStr = "Select * from Bestelling;";
                 }
 
                 using (SQLiteCommand sqlCmd = new SQLiteCommand(sqlStr, dbcDa))
                 {
                     using (SQLiteDataReader sqlrdr = sqlCmd.ExecuteReader())
                     {
-                        blListCount = 0;
-                        blListTCount = 0;
+                        bsListCount = 0;
+                        bsListTCount = 0;
                         while (sqlrdr.Read())
                         {
                             //get rows
-                            blListTCount++;
-                            if (sqlrdr.GetInt32(sqlrdr.GetOrdinal("Bstlr_StatusId")) != 135009)
+                            bsListTCount++;
+                            if (sqlrdr.GetInt32(sqlrdr.GetOrdinal("Bstl_StatusId")) != 120009)
                             {
-                                blListCount++;
+                                bsListCount++;
                             }
                         }
 
                     }
                 }
                 dbcDa.Close();
-                return blListCount;
+                return bsListCount;
             }
         }
 
         private void recordsInList(SQLiteDataReader r)
         {
-            blRecord blr = new blRecord();
+            bsRecord bsr = new bsRecord();
 
-            lstBestelregelRecord.Clear();
-            blListCount = 0;
-            blListTCount = 0;
+            lstBestellingRecord.Clear();
+            bsListCount = 0;
+            bsListTCount = 0;
 
             while (r.Read())
             {
                 //Maak list van geselecteerde rijen
-                blListTCount++;
-                blr.Bstlr_Id = r.GetInt32(r.GetOrdinal("Bstlr_Id"));
-                blr.Bstlr_BstlId = r.GetInt32(r.GetOrdinal("Bstlr_BstlId"));
-                blr.Bstlr_StatusId = r.GetInt32(r.GetOrdinal("Bstlr_StatusId"));
-                if (r.GetInt32(r.GetOrdinal("Bstlr_StatusId")) != 135009)
+                bsListTCount++;
+                bsr.Bstl_Id = r.GetInt32(r.GetOrdinal("Bstl_Id"));
+                bsr.Bstl_StatusId = r.GetInt32(r.GetOrdinal("Bstl_StatusId"));
+                if (r.GetInt32(r.GetOrdinal("Bstl_StatusId")) != 120009)
                 {
-                    blListCount++;
+                    bsListCount++;
                 }
-                blr.Bstlr_DispStatus = r.GetString(r.GetOrdinal("Bstlr_DispStatus"));
-                blr.Bstlr_ProdId = r.GetInt32(r.GetOrdinal("Bstlr_ProdId"));
-                blr.Bstlr_DispProduct = r.GetString(r.GetOrdinal("Bstlr_DispProduct"));
-                blr.Bstlr_Aantal = r.GetByte(r.GetOrdinal("Bstlr_Aantal"));
-                blr.Bstlr_Beginnr = r.GetInt64(r.GetOrdinal("Bstlr_Beginnr"));
-                blr.Bstlr_Eindnr = r.GetInt64(r.GetOrdinal("Bstlr_Eindnr"));
-                blr.Bstlr_Voorraad = r.GetInt64(r.GetOrdinal("Bstlr_Voorraad"));
-                blr.Bstlr_Extranr1 = r.GetInt64(r.GetOrdinal("Bstlr_Extranr1"));
-                blr.Bstlr_Extranr2 = r.GetInt64(r.GetOrdinal("Bstlr_Extranr2"));
-                blr.Bstlr_Extranr3 = r.GetInt64(r.GetOrdinal("Bstlr_Extranr3"));
-                blr.Bstlr_Mutatiedatum = r.GetDateTime(r.GetOrdinal("Bstlr_Mutatiedatum"));
+                bsr.Bstl_DispStatus = r.GetString(r.GetOrdinal("Bstl_DispStatus"));
+                bsr.Bstl_BgnrId = r.GetInt32(r.GetOrdinal("Bstl_BgnrId"));
+                bsr.Bstl_DispBgnr = r.GetString(r.GetOrdinal("Bstl_DispBgnr"));
+                bsr.Bstl_KlBgId = r.GetInt32(r.GetOrdinal("Bstl_KlBgId"));
+                bsr.Bstl_DispKlBg = r.GetString(r.GetOrdinal("Bstl_DispKlBg"));
+                bsr.Bstl_VerwerkperiodeId = r.GetInt32(r.GetOrdinal("Bstl_VerwerkperiodeId"));
+                bsr.Bstl_valutadatum = r.GetDateTime(r.GetOrdinal("Bstl_Valutadatum"));
+                bsr.Bstl_Bestelbedrag = r.GetDecimal(r.GetOrdinal("Bstl_Bestelbedrag"));
+                bsr.Bstl_Diversen = r.GetDecimal(r.GetOrdinal("Bstl_Diversen"));
+                bsr.Bstl_DiversenId = r.GetInt32(r.GetOrdinal("Bstl_DiversenId"));
+                bsr.Bstl_DispDiversen = r.GetString(r.GetOrdinal("Bstl_DispDiversen"));
+                bsr.Bstl_Verschil = r.GetDecimal(r.GetOrdinal("Bstl_Verschil"));
+                bsr.Bstl_VerschilId = r.GetInt32(r.GetOrdinal("Bstl_VerschilId"));
+                bsr.Bstl_DispVerschil = r.GetString(r.GetOrdinal("Bstl_DispVerschil"));
+                bsr.Bstl_Vastekostenperbestelling = r.GetDecimal(r.GetOrdinal("Bstl_Vastekostenperbestelling"));
+                bsr.Bstl_BonnengevraagdJN = r.GetInt32(r.GetOrdinal("Bstl_BonnengevraagdJN"));
+                bsr.Bstl_Mutatiedatum = r.GetDateTime(r.GetOrdinal("Bstl_Mutatiedatum"));
                 try
                 {
-                    blr.Bstlr_Opmerking = r.GetString(r.GetOrdinal("Bstlr_Opmerking"));
+                    bsr.Bstl_Opmerking = r.GetString(r.GetOrdinal("Bstl_Opmerking"));
                 }
                 catch (Exception)
                 {
                 }
-                lstBestelregelRecord.Add(blr);
+                lstBestellingRecord.Add(bsr);
             }
 
         }
 
-        public blRecord vanRecord(int recNr)
+        public bsRecord vanRecord(int recNr)
         {
-            blRecord blRec = new blRecord();
-            blRec.Bstlr_Id = lstBestelregelRecord[recNr].Bstlr_Id;
-            blRec.Bstlr_BstlId = lstBestelregelRecord[recNr].Bstlr_BstlId;
-            blRec.Bstlr_StatusId = lstBestelregelRecord[recNr].Bstlr_StatusId;
-            blRec.Bstlr_DispStatus = lstBestelregelRecord[recNr].Bstlr_DispStatus;
-            blRec.Bstlr_ProdId = lstBestelregelRecord[recNr].Bstlr_ProdId;
-            blRec.Bstlr_DispProduct = lstBestelregelRecord[recNr].Bstlr_DispProduct;
-            blRec.Bstlr_Aantal = lstBestelregelRecord[recNr].Bstlr_Aantal;
-            blRec.Bstlr_Beginnr = lstBestelregelRecord[recNr].Bstlr_Beginnr;
-            blRec.Bstlr_Eindnr = lstBestelregelRecord[recNr].Bstlr_Eindnr;
-            blRec.Bstlr_Voorraad = lstBestelregelRecord[recNr].Bstlr_Voorraad;
-            blRec.Bstlr_Extranr1 = lstBestelregelRecord[recNr].Bstlr_Extranr1;
-            blRec.Bstlr_Extranr2 = lstBestelregelRecord[recNr].Bstlr_Extranr2;
-            blRec.Bstlr_Extranr3 = lstBestelregelRecord[recNr].Bstlr_Extranr3;
-            blRec.Bstlr_Mutatiedatum = lstBestelregelRecord[recNr].Bstlr_Mutatiedatum;
-            blRec.Bstlr_Opmerking = lstBestelregelRecord[recNr].Bstlr_Opmerking;
-            return blRec;
+            bsRecord bsRec = new bsRecord();
+            bsRec.Bstl_Id = lstBestellingRecord[recNr].Bstl_Id;
+            bsRec.Bstl_StatusId = lstBestellingRecord[recNr].Bstl_StatusId;
+            bsRec.Bstl_DispStatus = lstBestellingRecord[recNr].Bstl_DispStatus;
+            bsRec.Bstl_BgnrId = lstBestellingRecord[recNr].Bstl_BgnrId;
+            bsRec.Bstl_DispBgnr = lstBestellingRecord[recNr].Bstl_DispBgnr;
+            bsRec.Bstl_KlBgId = lstBestellingRecord[recNr].Bstl_KlBgId;
+            bsRec.Bstl_DispKlBg = lstBestellingRecord[recNr].Bstl_DispKlBg;
+            bsRec.Bstl_VerwerkperiodeId = lstBestellingRecord[recNr].Bstl_VerwerkperiodeId;
+            bsRec.Bstl_valutadatum = lstBestellingRecord[recNr].Bstl_valutadatum;
+            bsRec.Bstl_Bestelbedrag = lstBestellingRecord[recNr].Bstl_Bestelbedrag;
+            bsRec.Bstl_Diversen = lstBestellingRecord[recNr].Bstl_Diversen;
+            bsRec.Bstl_DiversenId = lstBestellingRecord[recNr].Bstl_DiversenId;
+            bsRec.Bstl_DispDiversen = lstBestellingRecord[recNr].Bstl_DispDiversen;
+            bsRec.Bstl_Verschil = lstBestellingRecord[recNr].Bstl_Verschil;
+            bsRec.Bstl_VerschilId = lstBestellingRecord[recNr].Bstl_VerschilId;
+            bsRec.Bstl_DispVerschil = lstBestellingRecord[recNr].Bstl_DispVerschil;
+            bsRec.Bstl_Vastekostenperbestelling = lstBestellingRecord[recNr].Bstl_Vastekostenperbestelling;
+            bsRec.Bstl_BonnengevraagdJN = lstBestellingRecord[recNr].Bstl_BonnengevraagdJN;
+            bsRec.Bstl_Mutatiedatum = lstBestellingRecord[recNr].Bstl_Mutatiedatum;
+            bsRec.Bstl_Opmerking = lstBestellingRecord[recNr].Bstl_Opmerking;
+            return bsRec;
         }
 
-        public blRecord vulDefaultBl()
+        public bsRecord vulDefaultBs()
         {
             pf pf = new pf();
-            blRecord blRec = new blRecord();
-            blRec.Bstlr_BstlId = 1;
-            blRec.Bstlr_StatusId = 135009;
-            blRec.Bstlr_DispStatus = "Bestelregel-record is leeg / Tabelinitrecord";
-            blRec.Bstlr_StatusId = 1;
-            blRec.Bstlr_DispStatus = "Productnaam";
-            blRec.Bstlr_Aantal = 0;
-            blRec.Bstlr_Beginnr = 0;
-            blRec.Bstlr_Eindnr = 0;
-            blRec.Bstlr_Voorraad = 0;
-            blRec.Bstlr_Extranr1 = 0;
-            blRec.Bstlr_Extranr2 = 0;
-            blRec.Bstlr_Extranr3 = 0;
-            blRec.Bstlr_Mutatiedatum = DateTime.Parse("2000-01-01 00:00:00");
-            blRec.Bstlr_Opmerking = "";
-            return blRec;
+            bsRecord bsRec = new bsRecord();
+            bsRec.Bstl_StatusId = 120009;
+            bsRec.Bstl_DispStatus = "Bestelling-record is leeg / Tabelinitrecord";
+            bsRec.Bstl_BgnrId = 1;
+            bsRec.Bstl_DispBgnr = "NL59ONBB0000000000";
+            bsRec.Bstl_KlBgId = 1;
+            bsRec.Bstl_DispKlBg = "Klant-Begunstigde";
+            bsRec.Bstl_VerwerkperiodeId = 1;
+            bsRec.Bstl_valutadatum = DateTime.Parse("2000-01-01 00:00:00");
+            bsRec.Bstl_Bestelbedrag = 0;
+            bsRec.Bstl_Diversen = 0;
+            bsRec.Bstl_DiversenId = 121009;
+            bsRec.Bstl_DispDiversen = "Bstl_Div-Leeg";
+            bsRec.Bstl_Verschil = 0;
+            bsRec.Bstl_VerschilId = 122009;
+            bsRec.Bstl_DispVerschil = "Bstl_Vschl-Leeg";
+            bsRec.Bstl_Vastekostenperbestelling = 0;
+            bsRec.Bstl_BonnengevraagdJN = 1;
+            bsRec.Bstl_Mutatiedatum = DateTime.Parse("2000-01-01 00:00:00");
+            bsRec.Bstl_Opmerking = "";
+            return bsRec;
         }
 
-        public int newBlRecord()
+        public int newbsRecord()
         {
             pf pf = new pf();
-            blRecord dBl = new blRecord();
-            dBl = vulDefaultBl();
-            int newBlId = new int();
+            bsRecord dbs = new bsRecord();
+            dbs = vulDefaultBs();
+            int newBsId = new int();
             string sCs = "Data Source=" + gv.sDataFilePad + ";Version=3;New=False;";
 
             using (SQLiteConnection dbcDa = new SQLiteConnection(sCs))
             {
                 dbcDa.Open();
                 string findstring = pf.randomString(6);
-                string sqlStr = "Insert Into Bestelregel (Bstlr_BstlId, Bstlr_StatusId, Bstlr_DispStatus, Bstlr_ProdId, Bstlr_DispProduct, " +
-                                "Bstlr_Aantal, Bstlr_Beginnr, Bstlr_Eindnr, Bstlr_Voorraad, Bstlr_Extranr1, Bstlr_Extranr2, Bstlr_Extranr3, " +
-                                "Bstlr_Mutatiedatum, Bstlr_Opmerking) Values (@2, @3, @4, @5, @6, @7, @8, @9, @10, @11, @12, @13, @14, @15)";
+                string sqlStr = "Insert Into Bestelling (Bstl_StatusId, Bstlr_DispStatus, Bstl_BgnrId, Bstl_DispBgnr, Bstl_KlBgId, Bstl_DispKlBg " +
+                                "Bstl_Verwerkperiode, Bstl_Valutadatum, Bstl_Bestelbedrag, Bstl_Diversen, Bstl_DiversenId, Bstl_DispDiversen, Bstl_Verschil, " +
+                                "Bstl_VerschilId, Bstl_DispVerschil, Bstl_Vastekostenperbestelling, Bstl_BonnengevraagdJN, Bstl_Mutatiedatum, Bstl_Opmerking) Values " +
+                                "(@2, @3, @4, @5, @6, @7, @8, @9, @10, @11, @12, @13, @14, @15, @16, @17, @18, @19, @20)";
                 using (SQLiteCommand sqlCmd = new SQLiteCommand(sqlStr, dbcDa))
                 {
-                    SQLiteParameter p2 = new SQLiteParameter(); p2.ParameterName = "@2"; p2.Value = 1; sqlCmd.Parameters.Add(p2);
-                    SQLiteParameter p3 = new SQLiteParameter(); p3.ParameterName = "@3"; p3.Value = 135009; sqlCmd.Parameters.Add(p3);
-                    SQLiteParameter p4 = new SQLiteParameter(); p4.ParameterName = "@4"; p4.Value = "Bestelregel-record is leeg / Tabelinitrecord"; sqlCmd.Parameters.Add(p4);
-                    SQLiteParameter p5 = new SQLiteParameter(); p5.ParameterName = "@5"; p5.Value = 1; sqlCmd.Parameters.Add(p5);
-                    SQLiteParameter p6 = new SQLiteParameter(); p6.ParameterName = "@6"; p6.Value = "Productnaam"; sqlCmd.Parameters.Add(p6);
-                    SQLiteParameter p7 = new SQLiteParameter(); p7.ParameterName = "@7"; p7.Value = 0; sqlCmd.Parameters.Add(p7);
-                    SQLiteParameter p8 = new SQLiteParameter(); p8.ParameterName = "@8"; p8.Value = 0; sqlCmd.Parameters.Add(p8);
-                    SQLiteParameter p9 = new SQLiteParameter(); p9.ParameterName = "@9"; p9.Value = 0; sqlCmd.Parameters.Add(p9);
+                    SQLiteParameter p2 = new SQLiteParameter(); p2.ParameterName = "@2"; p2.Value = 120009; sqlCmd.Parameters.Add(p2);
+                    SQLiteParameter p3 = new SQLiteParameter(); p3.ParameterName = "@3"; p3.Value = "Bestelling-record is leeg / Tabelinitrecord"; sqlCmd.Parameters.Add(p3);
+                    SQLiteParameter p4 = new SQLiteParameter(); p4.ParameterName = "@4"; p4.Value = 1; sqlCmd.Parameters.Add(p4);
+                    SQLiteParameter p5 = new SQLiteParameter(); p5.ParameterName = "@5"; p5.Value = "NL59ONBB0000000000"; sqlCmd.Parameters.Add(p5);
+                    SQLiteParameter p6 = new SQLiteParameter(); p6.ParameterName = "@6"; p6.Value = 1; sqlCmd.Parameters.Add(p6);
+                    SQLiteParameter p7 = new SQLiteParameter(); p7.ParameterName = "@7"; p7.Value = "Klant-Begunstigde"; sqlCmd.Parameters.Add(p7);
+                    SQLiteParameter p8 = new SQLiteParameter(); p8.ParameterName = "@8"; p8.Value = 1; sqlCmd.Parameters.Add(p8);
+                    SQLiteParameter p9 = new SQLiteParameter(); p9.ParameterName = "@9"; p9.Value = DateTime.Parse("2000-01-01 00:00:00"); sqlCmd.Parameters.Add(p9);
                     SQLiteParameter p10 = new SQLiteParameter(); p10.ParameterName = "@10"; p10.Value = 0; sqlCmd.Parameters.Add(p10);
                     SQLiteParameter p11 = new SQLiteParameter(); p11.ParameterName = "@11"; p11.Value = 0; sqlCmd.Parameters.Add(p11);
-                    SQLiteParameter p12 = new SQLiteParameter(); p12.ParameterName = "@12"; p12.Value = 0; sqlCmd.Parameters.Add(p12);
-                    SQLiteParameter p13 = new SQLiteParameter(); p13.ParameterName = "@13"; p13.Value = 0; sqlCmd.Parameters.Add(p13);
-                    SQLiteParameter p14 = new SQLiteParameter(); p14.ParameterName = "@14"; p14.Value = DateTime.Parse("2000-01-01 00:00:00"); sqlCmd.Parameters.Add(p14);
-                    SQLiteParameter p15 = new SQLiteParameter(); p15.ParameterName = "@15"; p15.Value = findstring; sqlCmd.Parameters.Add(p15);
+                    SQLiteParameter p12 = new SQLiteParameter(); p12.ParameterName = "@12"; p12.Value = 121009; sqlCmd.Parameters.Add(p12);
+                    SQLiteParameter p13 = new SQLiteParameter(); p13.ParameterName = "@13"; p13.Value = "Bstl_Div-Leeg"; sqlCmd.Parameters.Add(p13);
+                    SQLiteParameter p14 = new SQLiteParameter(); p14.ParameterName = "@14"; p14.Value = 0; sqlCmd.Parameters.Add(p11);
+                    SQLiteParameter p15 = new SQLiteParameter(); p15.ParameterName = "@15"; p15.Value = 122009; sqlCmd.Parameters.Add(p12);
+                    SQLiteParameter p16 = new SQLiteParameter(); p16.ParameterName = "@16"; p16.Value = "Bstl_Vschl-Leeg"; sqlCmd.Parameters.Add(p13);
+                    SQLiteParameter p17 = new SQLiteParameter(); p17.ParameterName = "@17"; p17.Value = 0; sqlCmd.Parameters.Add(p17);
+                    SQLiteParameter p18 = new SQLiteParameter(); p18.ParameterName = "@18"; p18.Value = 1; sqlCmd.Parameters.Add(p18);
+                    SQLiteParameter p19 = new SQLiteParameter(); p19.ParameterName = "@19"; p19.Value = DateTime.Parse("2000-01-01 00:00:00"); sqlCmd.Parameters.Add(p19);
+                    SQLiteParameter p20 = new SQLiteParameter(); p20.ParameterName = "@20"; p20.Value = findstring; sqlCmd.Parameters.Add(p20);
                     sqlCmd.ExecuteNonQuery();
                     dbcDa.Close();
                 }
 
                 // Zoek toegevoegde record
-                tblBl bl = new tblBl();
-                bl.zoekBestelregelRecord("Bstlr_Opmerking = " + "\"" + findstring + "\"");
-                newBlId = bl.lstBestelregelRecord[0].Bstlr_Id;
+                tblBs bs = new tblBs();
+                bs.zoekBestellingRecord("Bstl_Opmerking = " + "\"" + findstring + "\"");
+                newBsId = bs.lstBestellingRecord[0].Bstl_Id;
 
                 // Verwijder infor uit Opmerking-veld
                 dbcDa.Open();
-                sqlStr = "Update Bestelregel set Bstlr_Opmerking=@16 where Bstlr_Id = @1;";
+                sqlStr = "Update Bestelling set Bstl_Opmerking=@20 where Bstl_Id = @1;";
                 using (SQLiteCommand sqlCmd = new SQLiteCommand(sqlStr, dbcDa))
                 {
-                    sqlCmd.Parameters.AddWithValue("@1", newBlId);
-                    sqlCmd.Parameters.AddWithValue("@16", "");
+                    sqlCmd.Parameters.AddWithValue("@1", newBsId);
+                    sqlCmd.Parameters.AddWithValue("@20", "");
                     sqlCmd.ExecuteNonQuery();
                 }
                 dbcDa.Close();
 
 
-                return newBlId;
+                return newBsId;
             }
         }
 
-        public void saveRecord(int iBlId, blRecord blR)
+        public void saveRecord(int iBsId, bsRecord bsR)
         {
-            string sqlStr = "Update Bestelregel  set Bstlr_BstlId=@2, Bstlr_StatusId=@3, Bstlr_DispStatus=@4, Bstlr_ProdId=@5, Bstlr_DispProduct=@6, " +
-                            "Bstlr_Aantal=@7, Bstlr_Beginnr=@8, Bstlr_Eindnr=@9, Bstlr_Voorraad=@10, Bstlr_Extranr1=@11, " +
-                            "Bstlr_Extranr2=@12, Bstlr_Extranr3=@13, Bstlr_Mutatiedatum=@14, Bstlr_Opmerking=@15 Where Bstlr_Id=@1";
-
+            string sqlStr = "Update Bestelling (Bstl_StatusId=@2, Bstlr_DispStatus=@3, Bstl_BgnrId=@4, Bstl_DispBgnr=@5, Bstl_KlBgId=@6, " +
+                            "Bstl_DispKlBg=@7, Bstl_VerwerkperiodeId=@8, Bstl_Valutadatum=@9, Bstl_Bestelbedrag=@10, Bstl_Diversen=@11, " +
+                            "Bstl_DiversenId=@12, Bstl_DispDiversen=@13, Bstl_Verschil=@14, Bstl_VerschilId=@15, Bstl_DispVerschil=@16, " +
+                            "Bstl_Vastekostenperbestelling=@17, Bstl_BonnengevraagdJN=@18, Bstl_Mutatiedatum=@19, Bstl_Opmerking=@20 "+
+                            "Where Bstl_Id=@1";
+            
             string sCs = "Data Source=" + gv.sDataFilePad + ";Version=3;New=False;";
             using (SQLiteConnection dbcDa = new SQLiteConnection(sCs))
             {
@@ -268,21 +289,26 @@ namespace nsTblBs
                 {
                     using (SQLiteCommand sqlCmd = new SQLiteCommand(sqlStr, dbcDa))
                     {
-                        sqlCmd.Parameters.AddWithValue("@1", iBlId);
-                        sqlCmd.Parameters.AddWithValue("@2", blR.Bstlr_BstlId);
-                        sqlCmd.Parameters.AddWithValue("@3", blR.Bstlr_StatusId);
-                        sqlCmd.Parameters.AddWithValue("@4", blR.Bstlr_DispStatus);
-                        sqlCmd.Parameters.AddWithValue("@5", blR.Bstlr_ProdId);
-                        sqlCmd.Parameters.AddWithValue("@6", blR.Bstlr_DispProduct);
-                        sqlCmd.Parameters.AddWithValue("@7", blR.Bstlr_Aantal);
-                        sqlCmd.Parameters.AddWithValue("@8", blR.Bstlr_Beginnr);
-                        sqlCmd.Parameters.AddWithValue("@9", blR.Bstlr_Eindnr);
-                        sqlCmd.Parameters.AddWithValue("@10", blR.Bstlr_Voorraad);
-                        sqlCmd.Parameters.AddWithValue("@11", blR.Bstlr_Extranr1);
-                        sqlCmd.Parameters.AddWithValue("@12", blR.Bstlr_Extranr2);
-                        sqlCmd.Parameters.AddWithValue("@13", blR.Bstlr_Extranr3);
-                        sqlCmd.Parameters.AddWithValue("@14", blR.Bstlr_Mutatiedatum);
-                        sqlCmd.Parameters.AddWithValue("@15", blR.Bstlr_Opmerking);
+                        sqlCmd.Parameters.AddWithValue("@1", iBsId);
+                        sqlCmd.Parameters.AddWithValue("@2", bsR.Bstl_StatusId);
+                        sqlCmd.Parameters.AddWithValue("@3", bsR.Bstl_DispStatus);
+                        sqlCmd.Parameters.AddWithValue("@4", bsR.Bstl_BgnrId);
+                        sqlCmd.Parameters.AddWithValue("@5", bsR.Bstl_DispBgnr);
+                        sqlCmd.Parameters.AddWithValue("@6", bsR.Bstl_KlBgId);
+                        sqlCmd.Parameters.AddWithValue("@7", bsR.Bstl_DispKlBg);
+                        sqlCmd.Parameters.AddWithValue("@8", bsR.Bstl_VerwerkperiodeId);
+                        sqlCmd.Parameters.AddWithValue("@9", bsR.Bstl_valutadatum);
+                        sqlCmd.Parameters.AddWithValue("@10", bsR.Bstl_Bestelbedrag);
+                        sqlCmd.Parameters.AddWithValue("@11", bsR.Bstl_DispDiversen);
+                        sqlCmd.Parameters.AddWithValue("@12", bsR.Bstl_DiversenId);
+                        sqlCmd.Parameters.AddWithValue("@13", bsR.Bstl_DispDiversen);
+                        sqlCmd.Parameters.AddWithValue("@14", bsR.Bstl_Verschil);
+                        sqlCmd.Parameters.AddWithValue("@15", bsR.Bstl_VerschilId);
+                        sqlCmd.Parameters.AddWithValue("@16", bsR.Bstl_DispVerschil);
+                        sqlCmd.Parameters.AddWithValue("@17", bsR.Bstl_Vastekostenperbestelling);
+                        sqlCmd.Parameters.AddWithValue("@18", bsR.Bstl_BonnengevraagdJN);
+                        sqlCmd.Parameters.AddWithValue("@19", bsR.Bstl_Mutatiedatum);
+                        sqlCmd.Parameters.AddWithValue("@20", bsR.Bstl_Opmerking);
                         sqlCmd.ExecuteNonQuery();
                     }
                 }
@@ -292,7 +318,7 @@ namespace nsTblBs
             }
         }
 
-        public void deleteRecord(int iBlId)
+        public void deleteRecord(int iBsId)
         {
             string sCs = "Data Source=" + gv.sDataFilePad + ";Version=3;New=False;";
             using (SQLiteConnection dbcDa = new SQLiteConnection(sCs))
@@ -300,10 +326,10 @@ namespace nsTblBs
                 dbcDa.Open();
                 try
                 {
-                    string sqlStr = "Delete from Bestelregel Where Bstlr_Id=@1;";
+                    string sqlStr = "Delete from Bestelling Where Bstl_Id=@1;";
                     using (SQLiteCommand sqlCmd = new SQLiteCommand(sqlStr, dbcDa))
                     {
-                        sqlCmd.Parameters.AddWithValue("@1", iBlId);
+                        sqlCmd.Parameters.AddWithValue("@1", iBsId);
                         sqlCmd.ExecuteNonQuery();
                     }
                 }
