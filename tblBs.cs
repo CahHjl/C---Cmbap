@@ -8,19 +8,24 @@ using System.Data.SQLite;
 using ProcFunc;
 using globalVars;
 
-namespace nsTblBl
+namespace nsTblBs
 {
-    class tblBl
+    class tblBs
     {
-        public struct blRecord
+        public struct bsRecord
         {
-            public int Bstlr_Id { get; set; }
-            public int Bstlr_BstlId { get; set; }
-            public int Bstlr_StatusId { get; set; }
-            public string Bstlr_DispStatus { get; set; }
-            public int Bstlr_ProdId { get; set; }
-            public string Bstlr_DispProduct { get; set; }
-            public byte Bstlr_Aantal { get; set; }
+            public int Bstl_Id { get; set; }
+            public int Bstl_StatusId { get; set; }
+            public string Bstl_DispStatus { get; set; }
+            public int Bstl_BgnrId { get; set; }
+            public string Bstl_DispBgnr { get; set; }
+            public int Bstl_KlBgId { get; set; }
+            public string Bstl_DispKlBg { get; set; }
+            public int Bstl_VerwerkperiodeId { get; set; }
+            public DateTime Bstl_valutadatum { get; set; }
+            public decimal Bstl_Bestelbedrag { get; set; }
+
+
             public long Bstlr_Beginnr { get; set; }
             public long Bstlr_Eindnr { get; set; }
             public long Bstlr_Voorraad { get; set; }
@@ -206,7 +211,7 @@ namespace nsTblBl
                 dbcDa.Open();
                 string findstring = pf.randomString(6);
                 string sqlStr = "Insert Into Bestelregel (Bstlr_BstlId, Bstlr_StatusId, Bstlr_DispStatus, Bstlr_ProdId, Bstlr_DispProduct, " +
-                                "Bstlr_Aantal, Bstlr_Beginnr, Bstlr_Eindnr, Bstlr_Voorraad, Bstlr_Extranr1, Bstlr_Extranr2, Bstlr_Extranr3, "+
+                                "Bstlr_Aantal, Bstlr_Beginnr, Bstlr_Eindnr, Bstlr_Voorraad, Bstlr_Extranr1, Bstlr_Extranr2, Bstlr_Extranr3, " +
                                 "Bstlr_Mutatiedatum, Bstlr_Opmerking) Values (@2, @3, @4, @5, @6, @7, @8, @9, @10, @11, @12, @13, @14, @15)";
                 using (SQLiteCommand sqlCmd = new SQLiteCommand(sqlStr, dbcDa))
                 {
@@ -252,7 +257,7 @@ namespace nsTblBl
         public void saveRecord(int iBlId, blRecord blR)
         {
             string sqlStr = "Update Bestelregel  set Bstlr_BstlId=@2, Bstlr_StatusId=@3, Bstlr_DispStatus=@4, Bstlr_ProdId=@5, Bstlr_DispProduct=@6, " +
-                            "Bstlr_Aantal=@7, Bstlr_Beginnr=@8, Bstlr_Eindnr=@9, Bstlr_Voorraad=@10, Bstlr_Extranr1=@11, "+
+                            "Bstlr_Aantal=@7, Bstlr_Beginnr=@8, Bstlr_Eindnr=@9, Bstlr_Voorraad=@10, Bstlr_Extranr1=@11, " +
                             "Bstlr_Extranr2=@12, Bstlr_Extranr3=@13, Bstlr_Mutatiedatum=@14, Bstlr_Opmerking=@15 Where Bstlr_Id=@1";
 
             string sCs = "Data Source=" + gv.sDataFilePad + ";Version=3;New=False;";

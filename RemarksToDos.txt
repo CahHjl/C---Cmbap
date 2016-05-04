@@ -24,14 +24,11 @@ Done
 <*> !! Voor Delete/verwijderen product: controle of product wordt gebruikt en daar eventueel bericht over geven
 <*> Product invoer: max. records toevoegen in demo-versie 
 
-frmInvoerJaarGegevens
-* Method na klik op delete-buttton
-
 Alle tbl's
 - Tellen van records verdeeld over totaal en zonder ...009
-	Gedaan bij: tblJg, tblPd, tblVr, tblJs, tblSs
-	Te doen:	tblAg, tblBg, tblBr, tblBs, tblBl, tblCt, tblDf, tblEm, tblEa, tblGb, tblHc, tblHu, tblIl, tblKb, tblLc, tblLg,
-				tblPe, tblSt, tblSc, tblSu, tblTl, tblUg, tblUg, tblVw, tblVr, tblLi, tblMo
-- Verwijderen Jg na annuleren
+	Gedaan bij: tblJg, tblPd, tblJs, tblBl 
+	Te doen:	tblAg, tblBg, tblBr, tblBs, tblCt, tblDf, tblEm, tblEa, tblGb, tblHc, tblHu, tblIl, tblKb, tblLc, tblLg,
+				tblPe, tblSt, tblSc, tblSu, tblTl, tblUg, tblUg, tblVw, tblVr, tblLi, tblMo, tblSs
+
 
 

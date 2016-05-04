@@ -135,7 +135,8 @@ namespace Cmbap
             gv.selectedProduct = 0;
             productSelectie productSelectie = new productSelectie();
             productSelectie.ShowDialog();
-            //rptVerkoopPerProduct.show;
+            ovzVerkoopPerProduct rptVerkoopPerProduct = new ovzVerkoopPerProduct();
+            rptVerkoopPerProduct.Show();
         }
     }
 }

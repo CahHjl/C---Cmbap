@@ -139,6 +139,7 @@
     <Compile Include="tblBg.cs" />
     <Compile Include="tblBl.cs" />
     <Compile Include="tblBr.cs" />
+    <Compile Include="tblBs.cs" />
     <Compile Include="tblIl.cs" />
     <Compile Include="tblJg.cs" />
     <Compile Include="tblJs.cs" />

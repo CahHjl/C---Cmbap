@@ -160,7 +160,7 @@ namespace nsTblJg
             jgRec.Jgeg_Begindatum = DateTime.Parse("2000-01-01 00:00:00");
             jgRec.Jgeg_Einddatum = DateTime.Parse("2000-12-31 00:00:00");
             jgRec.Jgeg_Mutatiedatum = DateTime.Parse("2000-01-01 00:00:00");
-            jgRec.Jgeg_Opmerking = pf.randomString(6);
+            jgRec.Jgeg_Opmerking = "";
             return jgRec;
         }
 

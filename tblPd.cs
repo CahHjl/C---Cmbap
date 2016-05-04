@@ -190,7 +190,7 @@ namespace nsTblPd
             pdRec.Prod_Verzamelnaam = "vel";
             pdRec.Prod_Waardepereenheid = 0;
             pdRec.Prod_Mutatiedatum = DateTime.Parse("2000-01-01 00:00:00");
-            pdRec.Prod_Opmerking = pf.randomString(6); 
+            pdRec.Prod_Opmerking = ""; 
             return pdRec;
         }
 
