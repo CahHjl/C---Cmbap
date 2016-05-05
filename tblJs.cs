@@ -263,7 +263,7 @@ namespace nsTblJs
                 }
                 catch (SystemException ex)
                 {
-                    System.Windows.Forms.MessageBox.Show(string.Format("An error occurred: {0}", ex.Message));
+                    System.Windows.Forms.MessageBox.Show(string.Format("Fout bij verwijderen van jaarsaldo: {0}", ex.Message));
                 }
             }
         }

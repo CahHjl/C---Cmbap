@@ -25,10 +25,24 @@ Done
 <*> Product invoer: max. records toevoegen in demo-versie 
 
 Alle tbl's
-- Tellen van records verdeeld over totaal en zonder ...009
-	Gedaan bij: tblJg, tblPd, tblJs, tblBl, tblBs
-	Te doen:	tblAg, tblBg, tblBr, tblCt, tblDf, tblEm, tblEa, tblGb, tblHc, tblHu, tblIl, tblKb, tblLc, tblLg,
-				tblPe, tblSt, tblSc, tblSu, tblTl, tblUg, tblUg, tblVw, tblVr, tblLi, tblMo, tblSs
+					Ag Bg Br Bs Bl Ct Df Em Ea Gb Hc Hu Il Jg Js Kb Lc Lg Pd Pe Ss St Sc Su Tl Ug Vw Vr Li Mo
+- Recordstructuur	 +	+  +  +	 +						 /	+  +		   +	 /	/				  /	 /  /				
+- Zoekrecord		 +		  +	 +							+  +		   +											
+- Telrecords		 +		  +	 +							+  +		   +										
+- RecordsInList		 +		  +	 +							+  +	 	   +	 										
+- vanRecord			 +		  +	 +							+  +		   +												
+- defaultrecord		 +		  +	 +							+  +		   +										
+- newrecord			 +		  +	 +							+  +		   +										
+- saverecord		 +		  +	 +							+  +		   +										
+- deleterecord		 +		  +	 +							+  +		   +										
+- Invoer gegevens	 										+			   +					
+- Error-delete		 +		  +  +							+  +		   +	
+- Error-saverecord
+- Error-newrecord
+- 
+				
+- Tellen van records verdeeld over totaal en zonder ...009  
+				
 
 
 
