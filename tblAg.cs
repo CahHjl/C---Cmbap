@@ -140,13 +140,14 @@ namespace nsTblAg
                 }
                 lstAdrsgegRecord.Add(agr);
             }
+        }
 
             public agRecord vanRecord(int recNr)
             {
                 agRecord agRec = new agRecord();
                 agRec.Adrsgeg_Id = lstAdrsgegRecord[recNr].Adrsgeg_Id;
-                agRec.Adrsgeg_StatusId = lstAdrsgegRecord[recNr].Adrsgeg_StatusId"));
-                agRec.Adrsgeg_DispStatus = lstAdrsgegRecord[recNr].Adrsgeg_DispStatus"));
+                agRec.Adrsgeg_StatusId = lstAdrsgegRecord[recNr].Adrsgeg_StatusId;
+                agRec.Adrsgeg_DispStatus = lstAdrsgegRecord[recNr].Adrsgeg_DispStatus;
                 agRec.Adrsgeg_KlBgId = lstAdrsgegRecord[recNr].Adrsgeg_KlBgId;
                 agRec.Adrsgeg_DispKlBg = lstAdrsgegRecord[recNr].Adrsgeg_DispKlBg;
                 agRec.Adrsgeg_Straatnaam = lstAdrsgegRecord[recNr].Adrsgeg_Straatnaam;
@@ -300,4 +301,4 @@ namespace nsTblAg
     }
 
 }
-}
+
