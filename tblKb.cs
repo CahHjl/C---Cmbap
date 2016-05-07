@@ -203,23 +203,39 @@ namespace nsTblKb
             kbRecord kbRec = new kbRecord();
             kbRec.Prod_StatusId = 170009;
             kbRec.Prod_DispStatus = "Product-record is leeg / Tabelinitrecord";
-            kbRec.Prod_Naamkort = "Prod_kort";
-            kbRec.Prod_Naamlang = "Prod_lang";
-            kbRec.Prod_Kleur = "Kleur";
-            kbRec.Prod_Code = "Prod_code";
-            kbRec.Prod_Soort = "B";
-            kbRec.Prod_ActiefJN = 0;
-            kbRec.Prod_Dispactief = "Nee";
-            kbRec.Prod_Waarde = 0;
-            kbRec.Prod_Aantaleenhedenperproduct = 20;
-            kbRec.Prod_Verzamelnaam = "vel";
-            kbRec.Prod_Waardepereenheid = 0;
-            kbRec.Prod_Mutatiedatum = DateTime.Parse("2000-01-01 00:00:00");
-            kbRec.Prod_Opmerking = "";
+            
+            kbRec.KlBg_StatusId = 10009;
+            kbRec.KlBg_DispStatus = "KlBgId - Onbekend";
+            kbRec.KlBg_KlantJN = 1;
+            kbRec.KlBg_BegunstigdeJN = 0;
+            kbRec.KlBg_SysteemKlBgJN = 0;
+            kbRec.KlBg_Scipio_Lokaalnr = 0;
+            kbRec.KlBg_DebNr = "";
+            kbRec.KlBg_CredNr = "";
+            kbRec.KlBg_Voorvoegsel = "";
+            kbRec.KlBg_Voorletter = "";
+            kbRec.KlBg_Tussenvoegsel = "";
+            kbRec.KlBg_Achternaam = "";
+            kbRec.KlBg_VVTA = "VVTA";
+            kbRec.KlBg_AVVT = "AVVT";
+            kbRec.KlBg_Straatnaam = "";
+            kbRec.KlBg_Huisnummer = "";
+            kbRec.KlBg_Huisnummertoevoeging = "";
+            kbRec.KlBg_Adres = "";
+            kbRec.KlBg_Postcode = "";
+            kbRec.KlBg_Woonplaats = "";
+            kbRec.KlBg_Telefoonnummer = "";
+            kbRec.KlBg_Emailadres = "";
+            kbRec.KlBg_Extra_Informatie = "";
+            kbRec.KlBg_SysteemKlBgDispJN = "N";
+            kbRec.KlBg_KlDispJN = "J";
+            kbRec.KlBg_BgDispJN = "N";
+            kbRec.KlBg_Mutatiedatum = DateTime.Parse("2000-01-01 00:00:00");
+            kbRec.KlBg_Opmerking = "";
             return kbRec;
         }
 
-        kbr.newKbRecord()
+        public int newKbRecord()
         {
             pf pf = new pf();
             kbRecord dKb = new kbRecord();
