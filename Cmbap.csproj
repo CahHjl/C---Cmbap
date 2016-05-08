@@ -140,6 +140,7 @@
     <Compile Include="tblBl.cs" />
     <Compile Include="tblBr.cs" />
     <Compile Include="tblBs.cs" />
+    <Compile Include="tblEa.cs" />
     <Compile Include="tblIl.cs" />
     <Compile Include="tblJg.cs" />
     <Compile Include="tblJs.cs" />
@@ -149,6 +150,7 @@
     <Compile Include="tblPd.cs" />
     <Compile Include="tblSs.cs" />
     <Compile Include="tblSt.cs" />
+    <Compile Include="tblTl.cs" />
     <Compile Include="tblVr.cs" />
     <Compile Include="Vars.cs" />
     <Compile Include="_Cmbap_dataDataSet.cs">

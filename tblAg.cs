@@ -171,7 +171,7 @@ namespace nsTblAg
                 agRec.Adrsgeg_KlBgId = 1;
                 agRec.Adrsgeg_DispKlBg = "Klant-begunstigde";
                 agRec.Adrsgeg_Straatnaam = "Straatnaam";
-                agRec.Adrsgeg_Huisnummer = 0;
+                agRec.Adrsgeg_Huisnummer = "0";
                 agRec.Adrsgeg_Huisnummertoevoeging = "";
                 agRec.Adrsgeg_Adres = "Straatnaam 0";
                 agRec.Adrsgeg_Postcode = "0000 AA";

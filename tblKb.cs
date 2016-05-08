@@ -178,22 +178,35 @@ namespace nsTblKb
         public kbRecord vanRecord(int recNr)
         {
             kbRecord kbRec = new kbRecord();
-            kbRec.Prod_Id = lstProductRecord[recNr].Prod_Id;
-            kbRec.Prod_StatusId = lstProductRecord[recNr].Prod_StatusId;
-            kbRec.Prod_DispStatus = lstProductRecord[recNr].Prod_DispStatus;
-            kbRec.Prod_Naamkort = lstProductRecord[recNr].Prod_Naamkort;
-            kbRec.Prod_Naamlang = lstProductRecord[recNr].Prod_Naamlang;
-            kbRec.Prod_Kleur = lstProductRecord[recNr].Prod_Kleur;
-            kbRec.Prod_Code = lstProductRecord[recNr].Prod_Code;
-            kbRec.Prod_Soort = lstProductRecord[recNr].Prod_Soort;
-            kbRec.Prod_ActiefJN = lstProductRecord[recNr].Prod_ActiefJN;
-            kbRec.Prod_Dispactief = lstProductRecord[recNr].Prod_Dispactief;
-            kbRec.Prod_Waarde = lstProductRecord[recNr].Prod_Waarde;
-            kbRec.Prod_Aantaleenhedenperproduct = lstProductRecord[recNr].Prod_Aantaleenhedenperproduct;
-            kbRec.Prod_Verzamelnaam = lstProductRecord[recNr].Prod_Verzamelnaam;
-            kbRec.Prod_Waardepereenheid = lstProductRecord[recNr].Prod_Waardepereenheid;
-            kbRec.Prod_Mutatiedatum = lstProductRecord[recNr].Prod_Mutatiedatum;
-            kbRec.Prod_Opmerking = lstProductRecord[recNr].Prod_Opmerking;
+            kbRec.KlBg_Id = lstKlantBegunstigdeRecord[recNr].KlBg_Id;
+            kbRec.KlBg_StatusId = lstKlantBegunstigdeRecord[recNr].KlBg_StatusId;
+            kbRec.KlBg_DispStatus = lstKlantBegunstigdeRecord[recNr].KlBg_DispStatus;
+            kbRec.KlBg_KlantJN = lstKlantBegunstigdeRecord[recNr].KlBg_KlantJN;
+            kbRec.KlBg_BegunstigdeJN = lstKlantBegunstigdeRecord[recNr].KlBg_BegunstigdeJN;
+            kbRec.KlBg_SysteemKlBgJN = lstKlantBegunstigdeRecord[recNr].KlBg_SysteemKlBgJN;
+            kbRec.KlBg_Scipio_Lokaalnr = lstKlantBegunstigdeRecord[recNr].KlBg_Scipio_Lokaalnr;
+            kbRec.KlBg_DebNr = lstKlantBegunstigdeRecord[recNr].KlBg_DebNr;
+            kbRec.KlBg_CredNr = lstKlantBegunstigdeRecord[recNr].KlBg_CredNr;
+            kbRec.KlBg_Voorvoegsel = lstKlantBegunstigdeRecord[recNr].KlBg_Voorvoegsel;
+            kbRec.KlBg_Voorletter = lstKlantBegunstigdeRecord[recNr].KlBg_Voorletter;
+            kbRec.KlBg_Tussenvoegsel = lstKlantBegunstigdeRecord[recNr].KlBg_Tussenvoegsel;
+            kbRec.KlBg_Achternaam = lstKlantBegunstigdeRecord[recNr].KlBg_Achternaam;
+            kbRec.KlBg_VVTA = lstKlantBegunstigdeRecord[recNr].KlBg_VVTA;
+            kbRec.KlBg_AVVT = lstKlantBegunstigdeRecord[recNr].KlBg_AVVT;
+            kbRec.KlBg_Straatnaam = lstKlantBegunstigdeRecord[recNr].KlBg_Straatnaam;
+            kbRec.KlBg_Huisnummer = lstKlantBegunstigdeRecord[recNr].KlBg_Huisnummer;
+            kbRec.KlBg_Huisnummertoevoeging = lstKlantBegunstigdeRecord[recNr].KlBg_Huisnummertoevoeging;
+            kbRec.KlBg_Adres = lstKlantBegunstigdeRecord[recNr].KlBg_Adres;
+            kbRec.KlBg_Postcode = lstKlantBegunstigdeRecord[recNr].KlBg_Postcode;
+            kbRec.KlBg_Woonplaats = lstKlantBegunstigdeRecord[recNr].KlBg_Woonplaats;
+            kbRec.KlBg_Telefoonnummer = lstKlantBegunstigdeRecord[recNr].KlBg_Telefoonnummer;
+            kbRec.KlBg_Emailadres = lstKlantBegunstigdeRecord[recNr].KlBg_Extra_Informatie;
+            kbRec.KlBg_Extra_Informatie = lstKlantBegunstigdeRecord[recNr].KlBg_Extra_Informatie;
+            kbRec.KlBg_SysteemKlBgDispJN = lstKlantBegunstigdeRecord[recNr].KlBg_SysteemKlBgDispJN;
+            kbRec.KlBg_KlDispJN = lstKlantBegunstigdeRecord[recNr].KlBg_KlDispJN;
+            kbRec.KlBg_BgDispJN = lstKlantBegunstigdeRecord[recNr].KlBg_BgDispJN;
+            kbRec.KlBg_Mutatiedatum = lstKlantBegunstigdeRecord[recNr].KlBg_Mutatiedatum;
+            kbRec.KlBg_Opmerking = lstKlantBegunstigdeRecord[recNr].KlBg_Opmerking;
             return kbRec;
         }
 
@@ -201,9 +214,6 @@ namespace nsTblKb
         {
             pf pf = new pf();
             kbRecord kbRec = new kbRecord();
-            kbRec.Prod_StatusId = 170009;
-            kbRec.Prod_DispStatus = "Product-record is leeg / Tabelinitrecord";
-            
             kbRec.KlBg_StatusId = 10009;
             kbRec.KlBg_DispStatus = "KlBgId - Onbekend";
             kbRec.KlBg_KlantJN = 1;
@@ -247,43 +257,59 @@ namespace nsTblKb
             {
                 dbcDa.Open();
                 string findstring = pf.randomString(6);
-                string sqlStr = "Insert Into Product (Prod_StatusId, Prod_DispStatus, Prod_Naamkort, Prod_Naamlang, " +
-                                "Prod_Kleur, Prod_Code, Prod_Soort, Prod_ActiefJN, Prod_Dispactief, Prod_Waarde, " +
-                                "Prod_Aantaleenhedenperproduct, Prod_Verzamelnaam, Prod_Waardepereenheid, Prod_Mutatiedatum, " +
-                                "Prod_Opmerking) Values (@2, @3, @4, @5, @6, @7, @8, @9, @10, @11, @12, @13, @14, @15, @16)";
+                string sqlStr = "Insert Into Klant_Begunstigde (KlBg_StatusId, KlBg_DispStatus, KlBg_KlantJN, KlBg_BegunstigdeJN, " +
+                                "KlBg_SysteemKlBgJN, KlBg_Scipio_Lokaalnr, KlBg_DebNr, KlBg_CredNr, KlBg_Voorvoegsel, KlBg_Voorletter, " +
+                                "KlBg_Tussenvoegsel, KlBg_Achternaam, KlBg_VVTA, KlBg_AVVT, KlBg_Straatnaam, KlBg_Huisnummer, " +
+                                "KlBg_Huisnummertoevoeging, KlBg_Adres, KlBg_Postcode, KlBg_Woonplaats, KlBg_Telefoonnummer, KlBg_Emailadres, "  +
+                                "KlBg_Extra_Informatie, KlBg_SysteemKlBgDispJN, KlBg_KlDispJN, kbRec.KlBg_BgDispJN, kbRec.KlBg_Mutatiedatum, " +
+                                "KlBg_Opmerking) Values (@2, @3, @4, @5, @6, @7, @8, @9, @10, @11, @12, @13, @14, @15, @16, @17, @18, @19, @20, " +
+                                "@21, @22, @23, @24, @25, @26, @27, @28)";
+
                 using (SQLiteCommand sqlCmd = new SQLiteCommand(sqlStr, dbcDa))
                 {
-                    SQLiteParameter p2 = new SQLiteParameter(); p2.ParameterName = "@2"; p2.Value = 170009; sqlCmd.Parameters.Add(p2);
-                    SQLiteParameter p3 = new SQLiteParameter(); p3.ParameterName = "@3"; p3.Value = "Product-record is leeg / Tabelinitrecord"; sqlCmd.Parameters.Add(p3);
-                    SQLiteParameter p4 = new SQLiteParameter(); p4.ParameterName = "@4"; p4.Value = "Prod_kort"; sqlCmd.Parameters.Add(p4);
-                    SQLiteParameter p5 = new SQLiteParameter(); p5.ParameterName = "@5"; p5.Value = "Prod_lang"; sqlCmd.Parameters.Add(p5);
-                    SQLiteParameter p6 = new SQLiteParameter(); p6.ParameterName = "@6"; p6.Value = "Kleur"; sqlCmd.Parameters.Add(p6);
-                    SQLiteParameter p7 = new SQLiteParameter(); p7.ParameterName = "@7"; p7.Value = "Prod_code"; sqlCmd.Parameters.Add(p7);
-                    SQLiteParameter p8 = new SQLiteParameter(); p8.ParameterName = "@8"; p8.Value = "B"; sqlCmd.Parameters.Add(p8);
-                    SQLiteParameter p9 = new SQLiteParameter(); p9.ParameterName = "@9"; p9.Value = 0; sqlCmd.Parameters.Add(p9);
-                    SQLiteParameter p10 = new SQLiteParameter(); p10.ParameterName = "@10"; p10.Value = "Nee"; sqlCmd.Parameters.Add(p10);
-                    SQLiteParameter p11 = new SQLiteParameter(); p11.ParameterName = "@11"; p11.Value = 0; sqlCmd.Parameters.Add(p11);
-                    SQLiteParameter p12 = new SQLiteParameter(); p12.ParameterName = "@12"; p12.Value = 20; sqlCmd.Parameters.Add(p12);
-                    SQLiteParameter p13 = new SQLiteParameter(); p13.ParameterName = "@13"; p13.Value = "vel"; sqlCmd.Parameters.Add(p13);
-                    SQLiteParameter p14 = new SQLiteParameter(); p14.ParameterName = "@14"; p14.Value = 0; sqlCmd.Parameters.Add(p14);
-                    SQLiteParameter p15 = new SQLiteParameter(); p15.ParameterName = "@15"; p15.Value = DateTime.Parse("2000-01-01 00:00:00"); sqlCmd.Parameters.Add(p15);
-                    SQLiteParameter p16 = new SQLiteParameter(); p16.ParameterName = "@16"; p16.Value = findstring; sqlCmd.Parameters.Add(p16);
+                    SQLiteParameter p2 = new SQLiteParameter(); p2.ParameterName = "@2"; p2.Value = 10009; sqlCmd.Parameters.Add(p2);
+                    SQLiteParameter p3 = new SQLiteParameter(); p3.ParameterName = "@3"; p3.Value = "KlBgId-Onbekend"; sqlCmd.Parameters.Add(p3);
+                    SQLiteParameter p4 = new SQLiteParameter(); p4.ParameterName = "@4"; p4.Value = 1; sqlCmd.Parameters.Add(p4);
+                    SQLiteParameter p5 = new SQLiteParameter(); p5.ParameterName = "@5"; p5.Value = 0; sqlCmd.Parameters.Add(p5);
+                    SQLiteParameter p6 = new SQLiteParameter(); p6.ParameterName = "@6"; p6.Value = 0; sqlCmd.Parameters.Add(p6);
+                    SQLiteParameter p7 = new SQLiteParameter(); p7.ParameterName = "@7"; p7.Value = 0; sqlCmd.Parameters.Add(p7);
+                    SQLiteParameter p8 = new SQLiteParameter(); p8.ParameterName = "@8"; p8.Value = ""; sqlCmd.Parameters.Add(p8);
+                    SQLiteParameter p9 = new SQLiteParameter(); p9.ParameterName = "@9"; p9.Value = ""; sqlCmd.Parameters.Add(p9);
+                    SQLiteParameter p10 = new SQLiteParameter(); p10.ParameterName = "@10"; p10.Value = ""; sqlCmd.Parameters.Add(p10);
+                    SQLiteParameter p11 = new SQLiteParameter(); p11.ParameterName = "@11"; p11.Value = ""; sqlCmd.Parameters.Add(p11);
+                    SQLiteParameter p12 = new SQLiteParameter(); p12.ParameterName = "@12"; p12.Value = ""; sqlCmd.Parameters.Add(p12);
+                    SQLiteParameter p13 = new SQLiteParameter(); p13.ParameterName = "@13"; p13.Value = ""; sqlCmd.Parameters.Add(p13);
+                    SQLiteParameter p14 = new SQLiteParameter(); p14.ParameterName = "@14"; p14.Value = "VVTA"; sqlCmd.Parameters.Add(p14);
+                    SQLiteParameter p15 = new SQLiteParameter(); p2.ParameterName = "@15"; p15.Value = "AVVT"; sqlCmd.Parameters.Add(p15);
+                    SQLiteParameter p16 = new SQLiteParameter(); p3.ParameterName = "@16"; p16.Value = ""; sqlCmd.Parameters.Add(p16);
+                    SQLiteParameter p17 = new SQLiteParameter(); p4.ParameterName = "@17"; p17.Value = ""; sqlCmd.Parameters.Add(p17);
+                    SQLiteParameter p18 = new SQLiteParameter(); p5.ParameterName = "@18"; p18.Value = ""; sqlCmd.Parameters.Add(p18);
+                    SQLiteParameter p19 = new SQLiteParameter(); p6.ParameterName = "@19"; p19.Value = ""; sqlCmd.Parameters.Add(p19);
+                    SQLiteParameter p20 = new SQLiteParameter(); p7.ParameterName = "@20"; p20.Value = ""; sqlCmd.Parameters.Add(p20);
+                    SQLiteParameter p21 = new SQLiteParameter(); p8.ParameterName = "@21"; p21.Value = ""; sqlCmd.Parameters.Add(p21);
+                    SQLiteParameter p22 = new SQLiteParameter(); p9.ParameterName = "@22"; p22.Value = ""; sqlCmd.Parameters.Add(p22);
+                    SQLiteParameter p23 = new SQLiteParameter(); p10.ParameterName = "@23"; p23.Value = ""; sqlCmd.Parameters.Add(p23);
+                    SQLiteParameter p24 = new SQLiteParameter(); p11.ParameterName = "@24"; p24.Value = "N"; sqlCmd.Parameters.Add(p24);
+                    SQLiteParameter p25 = new SQLiteParameter(); p12.ParameterName = "@25"; p25.Value = "J"; sqlCmd.Parameters.Add(p25);
+                    SQLiteParameter p26 = new SQLiteParameter(); p13.ParameterName = "@26"; p26.Value = "N"; sqlCmd.Parameters.Add(p26);
+                    SQLiteParameter p27 = new SQLiteParameter(); p27.ParameterName = "@27"; p27.Value = DateTime.Parse("2000-01-01 00:00:00"); sqlCmd.Parameters.Add(p27);
+                    SQLiteParameter p28 = new SQLiteParameter(); p28.ParameterName = "@28"; p28.Value = findstring; sqlCmd.Parameters.Add(p28);
                     sqlCmd.ExecuteNonQuery();
                     dbcDa.Close();
                 }
 
                 // Zoek toegevoegde record
                 tblKb kb = new tblKb();
-                kb.zoekProductRecord("Prod_Opmerking = " + "\"" + findstring + "\"");
-                newKbId = kb.lstProductRecord[0].Prod_Id;
+                kb.zoekKlantBegunstigdeRecord("KlBg_Opmerking = " + "\"" + findstring + "\"");
+                newKbId = kb.lstKlantBegunstigdeRecord[0].KlBg_Id;
 
                 // Verwijder infor uit Opmerking-veld
                 dbcDa.Open();
-                sqlStr = "Update Product set KlBg_Opmerking=@16 where KlBg_Id = @1;";
+                sqlStr = "Update Klant_Begunstigde set KlBg_Opmerking=@28 where KlBg_Id = @1;";
                 using (SQLiteCommand sqlCmd = new SQLiteCommand(sqlStr, dbcDa))
                 {
                     sqlCmd.Parameters.AddWithValue("@1", newKbId);
-                    sqlCmd.Parameters.AddWithValue("@16", "");
+                    sqlCmd.Parameters.AddWithValue("@28", "");
                     sqlCmd.ExecuteNonQuery();
                 }
                 dbcDa.Close();
@@ -295,10 +321,13 @@ namespace nsTblKb
 
         public void saveRecord(int iKbId, kbRecord kbR)
         {
-            string sqlStr = "Update Product set Prod_StatusId=@2, Prod_DispStatus=@3, Prod_Naamkort=@4, Prod_Naamlang=@5, " +
-                            "Prod_Kleur=@6, Prod_Code=@7, Prod_Soort=@8, Prod_ActiefJN=@9, Prod_Dispactief=@10, Prod_Waarde=@11, " +
-                            "Prod_Aantaleenhedenperproduct=@12, Prod_Verzamelnaam=@13, Prod_Waardepereenheid=@14, Prod_Mutatiedatum=@15, " +
-                            "Prod_Opmerking=@16 Where Prod_Id=@1";
+            string sqlStr = "Update Klant_Begunstigde set KlBg_StatusId=@2, KlBg_DispStatus=@3, KlBg_KlantJN=@4, KlBg_BegunstigdeJN=@5, " +
+                            "KlBg_SysteemKlBgJN=@6, KlBg_Scipio_Lokaalnr=@7, KlBg_DebNr=@8, KlBg_CredNr=@9, KlBg_Voorvoegsel=@10, " +
+                            "KlBg_Voorletter=@11, KlBg_Tussenvoegsel=@12, KlBg_Achternaam=@13, KlBg_VVTA=@14, KlBg_AVVT=@15, " +
+                            "KlBg_Straatnaam=@16, KlBg_Huisnummer=@17, KlBg_Huisnummertoevoeging=@18, KlBg_Adres=@19, KlBg_Postcode=@20, " +
+                            "KlBg_Woonplaats=@21, KlBg_Telefoonnummer=@22, KlBg_Emailadres=@23, KlBg_Extra_Informatie=@24, " +
+                            "KlBg_SysteemKlBgDispJN=@25, KlBg_KlDispJN=@26, kbRec.KlBg_BgDispJN=@27, kbRec.KlBg_Mutatiedatum=@28, " +
+                            "KlBg_Opmerking=@29 Where KlBg_Id=@1";
 
             string sCs = "Data Source=" + gv.sDataFilePad + ";Version=3;New=False;";
             using (SQLiteConnection dbcDa = new SQLiteConnection(sCs))
@@ -309,21 +338,34 @@ namespace nsTblKb
                     using (SQLiteCommand sqlCmd = new SQLiteCommand(sqlStr, dbcDa))
                     {
                         sqlCmd.Parameters.AddWithValue("@1", iKbId);
-                        sqlCmd.Parameters.AddWithValue("@2", kbR.Prod_StatusId);
-                        sqlCmd.Parameters.AddWithValue("@3", kbR.Prod_DispStatus);
-                        sqlCmd.Parameters.AddWithValue("@4", kbR.Prod_Naamkort);
-                        sqlCmd.Parameters.AddWithValue("@5", kbR.Prod_Naamlang);
-                        sqlCmd.Parameters.AddWithValue("@6", kbR.Prod_Kleur);
-                        sqlCmd.Parameters.AddWithValue("@7", kbR.Prod_Code);
-                        sqlCmd.Parameters.AddWithValue("@8", kbR.Prod_Soort);
-                        sqlCmd.Parameters.AddWithValue("@9", kbR.Prod_ActiefJN);
-                        sqlCmd.Parameters.AddWithValue("@10", kbR.Prod_Dispactief);
-                        sqlCmd.Parameters.AddWithValue("@11", kbR.Prod_Waarde);
-                        sqlCmd.Parameters.AddWithValue("@12", kbR.Prod_Aantaleenhedenperproduct);
-                        sqlCmd.Parameters.AddWithValue("@13", kbR.Prod_Verzamelnaam);
-                        sqlCmd.Parameters.AddWithValue("@14", kbR.Prod_Waardepereenheid);
-                        sqlCmd.Parameters.AddWithValue("@15", kbR.Prod_Mutatiedatum);
-                        sqlCmd.Parameters.AddWithValue("@16", kbR.Prod_Opmerking);
+                        sqlCmd.Parameters.AddWithValue("@2", kbR.KlBg_StatusId);
+                        sqlCmd.Parameters.AddWithValue("@3", kbR.KlBg_DispStatus);
+                        sqlCmd.Parameters.AddWithValue("@4", kbR.KlBg_KlantJN);
+                        sqlCmd.Parameters.AddWithValue("@5", kbR.KlBg_BegunstigdeJN);
+                        sqlCmd.Parameters.AddWithValue("@6", kbR.KlBg_SysteemKlBgJN);
+                        sqlCmd.Parameters.AddWithValue("@7", kbR.KlBg_Scipio_Lokaalnr);
+                        sqlCmd.Parameters.AddWithValue("@8", kbR.KlBg_DebNr);
+                        sqlCmd.Parameters.AddWithValue("@9", kbR.KlBg_CredNr);
+                        sqlCmd.Parameters.AddWithValue("@10", kbR.KlBg_Voorvoegsel);
+                        sqlCmd.Parameters.AddWithValue("@11", kbR.KlBg_Voorletter);
+                        sqlCmd.Parameters.AddWithValue("@12", kbR.KlBg_Tussenvoegsel);
+                        sqlCmd.Parameters.AddWithValue("@13", kbR.KlBg_Achternaam);
+                        sqlCmd.Parameters.AddWithValue("@14", kbR.KlBg_VVTA);
+                        sqlCmd.Parameters.AddWithValue("@15", kbR.KlBg_AVVT);
+                        sqlCmd.Parameters.AddWithValue("@16", kbR.KlBg_Straatnaam);
+                        sqlCmd.Parameters.AddWithValue("@17", kbR.KlBg_Huisnummer);
+                        sqlCmd.Parameters.AddWithValue("@18", kbR.KlBg_Huisnummertoevoeging);
+                        sqlCmd.Parameters.AddWithValue("@19", kbR.KlBg_Adres);
+                        sqlCmd.Parameters.AddWithValue("@20", kbR.KlBg_Postcode);
+                        sqlCmd.Parameters.AddWithValue("@21", kbR.KlBg_Woonplaats);
+                        sqlCmd.Parameters.AddWithValue("@22", kbR.KlBg_Telefoonnummer);
+                        sqlCmd.Parameters.AddWithValue("@23", kbR.KlBg_Emailadres);
+                        sqlCmd.Parameters.AddWithValue("@24", kbR.KlBg_Extra_Informatie);
+                        sqlCmd.Parameters.AddWithValue("@25", kbR.KlBg_SysteemKlBgDispJN);
+                        sqlCmd.Parameters.AddWithValue("@26", kbR.KlBg_KlDispJN);
+                        sqlCmd.Parameters.AddWithValue("@27", kbR.KlBg_BgDispJN);
+                        sqlCmd.Parameters.AddWithValue("@28", kbR.KlBg_Mutatiedatum);
+                        sqlCmd.Parameters.AddWithValue("@29", kbR.KlBg_Opmerking);
                         sqlCmd.ExecuteNonQuery();
                     }
                 }
