@@ -151,7 +151,7 @@ namespace nsTblTl
         {
             pf pf = new pf();
             tlRecord tlRec = new tlRecord();
-            tlRec.Tlf_StatusId = 170009;
+            tlRec.Tlf_StatusId = 105009;
             tlRec.Tlf_DispStatus = "Telefoonnummergegevens zijn leeg / Tabelinitrecord";
             tlRec.Tlf_KlBgId = 1;
             tlRec.Tlf_DispKlBg = "Klant-Begunstigde";

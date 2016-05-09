@@ -150,6 +150,7 @@
     <Compile Include="tblPd.cs" />
     <Compile Include="tblSs.cs" />
     <Compile Include="tblSt.cs" />
+    <Compile Include="tblSu.cs" />
     <Compile Include="tblTl.cs" />
     <Compile Include="tblVr.cs" />
     <Compile Include="Vars.cs" />

@@ -9,7 +9,7 @@ using globalVars;
 
 namespace nsTblAg
 {
-    class tblAg
+    public class tblAg
     {
         public struct agRecord
         {

@@ -109,13 +109,19 @@ namespace nsTblJs
             jsRecord jsr = new jsRecord();
 
             lstJaarSaldoRecord.Clear();
+            jsListCount = 0;
+            jsListTCount = 0;
 
             while (r.Read())
             {
                 //Maak list van geselecteerde rijen
-
+                jsListTCount++;
                 jsr.Jsal_Id = r.GetInt32(r.GetOrdinal("Jsal_Id"));
-                jsr.Jsal_StatusId = r.GetInt32(r.GetOrdinal("Jsql_StatusId"));
+                jsr.Jsal_StatusId = r.GetInt32(r.GetOrdinal("Jsal_StatusId"));
+                if (r.GetInt32(r.GetOrdinal("Jsal_StatusId"))==181009)
+                {
+                    jsListCount++;
+                }
                 jsr.Jsal_DispStatus = r.GetString(r.GetOrdinal("Jsal_DispStatus"));
                 jsr.Jsal_JgegId = r.GetInt32(r.GetOrdinal("Jsal_JgegId"));
                 jsr.Jsal_BgnrId = r.GetInt32(r.GetOrdinal("Jsal_BgnrId"));

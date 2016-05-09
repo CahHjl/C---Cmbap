@@ -23,11 +23,11 @@ namespace nsTblEa
             public string Ea_Opmerking { get; set; }
         }
 
-        public List<eaRecord> lstEmailadresRecord = new List<eaRecord>();
+        public List<eaRecord> lstSubuitgavesoort = new List<eaRecord>();
         public int eaListCount;
         public int eaListTCount;
 
-        public void zoekEmailadresRecord(string sZoekarg)
+        public void zoekSubuitgavesoort(string sZoekarg)
         {
             string sCs = "Data Source=" + gv.sDataFilePad + ";Version=3;New=False;";
 
@@ -56,7 +56,7 @@ namespace nsTblEa
             }
         }
 
-        public int telEmailadresRecord(string sZoekarg)
+        public int telSubuitgavesoort(string sZoekarg)
         {
             string sCs = "Data Source=" + gv.sDataFilePad + ";Version=3;New=False;";
 
@@ -100,7 +100,7 @@ namespace nsTblEa
         {
             eaRecord ear = new eaRecord();
 
-            lstEmailadresRecord.Clear();
+            lstSubuitgavesoort.Clear();
             eaListCount = 0;
             eaListTCount = 0;
 
@@ -128,7 +128,7 @@ namespace nsTblEa
                 catch (Exception)
                 {
                 }
-                lstEmailadresRecord.Add(ear);
+                lstSubuitgavesoort.Add(ear);
             }
 
         }
@@ -136,14 +136,14 @@ namespace nsTblEa
         public eaRecord vanRecord(int recNr)
         {
             eaRecord eaRec = new eaRecord();
-            eaRec.Ea_Id = lstEmailadresRecord[recNr].Ea_Id;
-            eaRec.Ea_StatusId = lstEmailadresRecord[recNr].Ea_StatusId;
-            eaRec.Ea_DispStatus = lstEmailadresRecord[recNr].Ea_DispStatus;
-            eaRec.Ea_KlBgId = lstEmailadresRecord[recNr].Ea_KlBgId;
-            eaRec.Ea_DispKlBg = lstEmailadresRecord[recNr].Ea_DispKlBg;
-            eaRec.Ea_Emailadres = lstEmailadresRecord[recNr].Ea_Emailadres;
-            eaRec.Ea_Mutatiedatum = lstEmailadresRecord[recNr].Ea_Mutatiedatum;
-            eaRec.Ea_Opmerking = lstEmailadresRecord[recNr].Ea_Opmerking;
+            eaRec.Ea_Id = lstSubuitgavesoort[recNr].Ea_Id;
+            eaRec.Ea_StatusId = lstSubuitgavesoort[recNr].Ea_StatusId;
+            eaRec.Ea_DispStatus = lstSubuitgavesoort[recNr].Ea_DispStatus;
+            eaRec.Ea_KlBgId = lstSubuitgavesoort[recNr].Ea_KlBgId;
+            eaRec.Ea_DispKlBg = lstSubuitgavesoort[recNr].Ea_DispKlBg;
+            eaRec.Ea_Emailadres = lstSubuitgavesoort[recNr].Ea_Emailadres;
+            eaRec.Ea_Mutatiedatum = lstSubuitgavesoort[recNr].Ea_Mutatiedatum;
+            eaRec.Ea_Opmerking = lstSubuitgavesoort[recNr].Ea_Opmerking;
             return eaRec;
         }
 
@@ -151,7 +151,7 @@ namespace nsTblEa
         {
             pf pf = new pf();
             eaRecord eaRec = new eaRecord();
-            eaRec.Ea_StatusId = 170009;
+            eaRec.Ea_StatusId = 200009;
             eaRec.Ea_DispStatus = "Emailadresgegevens zijn leeg / Tabelinitrecord";
             eaRec.Ea_KlBgId = 1;
             eaRec.Ea_DispKlBg = "Klant-Begunstigde";
@@ -190,8 +190,8 @@ namespace nsTblEa
 
                 // Zoek toegevoegde record
                 tblEa ea = new tblEa();
-                ea.zoekEmailadresRecord("Ea_Opmerking = " + "\"" + findstring + "\"");
-                newEaId = ea.lstEmailadresRecord[0].Ea_Id;
+                ea.zoekSubuitgavesoort("Ea_Opmerking = " + "\"" + findstring + "\"");
+                newEaId = ea.lstSubuitgavesoort[0].Ea_Id;
 
                 // Verwijder infor uit Opmerking-veld
                 dbcDa.Open();

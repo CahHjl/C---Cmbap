@@ -85,7 +85,7 @@ namespace nsTblJg
                         {
                             //get rows
                             jgListTCount++;
-                            if (sqlRdr.GetInt32(sqlRdr.GetOrdinal("Prod_StatusId")) != 180009)
+                            if (sqlRdr.GetInt32(sqlRdr.GetOrdinal("Jgeg_StatusId")) != 180009)
                             {
                                 jgListCount++;
                             }

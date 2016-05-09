@@ -9,7 +9,7 @@ using ProcFunc;
 
 namespace nsTblKb
 {
-    class tblKb
+    public class tblKb
     {
         public struct kbRecord
         {
