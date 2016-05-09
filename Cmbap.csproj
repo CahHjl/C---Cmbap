@@ -155,6 +155,7 @@
     <Compile Include="tblSt.cs" />
     <Compile Include="tblSu.cs" />
     <Compile Include="tblTl.cs" />
+    <Compile Include="tblUg.cs" />
     <Compile Include="tblVr.cs" />
     <Compile Include="Vars.cs" />
     <Compile Include="_Cmbap_dataDataSet.cs">
