@@ -219,7 +219,7 @@ namespace nsTblHc
         {
 
             string sqlStr = "Update Hoofdcategorie (Hcat_StatusId=@2, Hcat_DispStatus=@3, Hcat_Prefix=@4, Hcat_Kort=@5, Hcat_Lang=@6, " +
-                            "Hcat_WijzigentoegestaanJN=@7, Hcat_Mutatiedatum=@8, Hcat_Opmerking=9 Where Hcat=@1;";
+                            "Hcat_WijzigentoegestaanJN=@7, Hcat_Mutatiedatum=@8, Hcat_Opmerking=9 Where Hcat_Id=@1;";
     
             string sCs = "Data Source=" + gv.sDataFilePad + ";Version=3;New=False;";
             using (SQLiteConnection dbcDa = new SQLiteConnection(sCs))

@@ -159,7 +159,7 @@ namespace nsTblSu
             suRecord suRec = new suRecord();
             suRec.Sus_StatusId = 155009;
             suRec.Sus_DispStatus = "Sus-record is leeg / Tabel-initrecord";
-            suRec.Sus_Kort = "Sus_kort;
+            suRec.Sus_Kort = "Sus_kort";
             suRec.Sus_Lang = "Sus_lang";
             suRec.Sus_WijzigentoegestaanJN = 1;
             suRec.Sus_HusId = 1;

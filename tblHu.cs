@@ -153,7 +153,7 @@ namespace nsTblHu
             huRecord huRec = new huRecord();
             huRec.Hus_StatusId = 190009;
             huRec.Hus_DispStatus = "Hus-record is leeg / Tabel-initrecord";
-            huRec.Hus_Kort = "Hus_kort;
+            huRec.Hus_Kort = "Hus_kort";
             huRec.Hus_Lang = "Hus_lang";
             huRec.Hus_WijzigentoegestaanJN = 1;
             huRec.Hus_Mutatiedatum = DateTime.Parse("2000-01-01 00:00:00");
