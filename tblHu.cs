@@ -211,7 +211,7 @@ namespace nsTblHu
 
         public void saveRecord(int iHuId, huRecord huR)
         {
-            string sqlStr = "Update Hoofduitgavesoort (Hus_StatusId=@2, Hus_DispStatus=@3, Hus_Kort=@4, Hus_Lang=@5, Hus_WijzigentoegestaanJN=@6, " +
+            string sqlStr = "Update Hoofduitgavesoort set Hus_StatusId=@2, Hus_DispStatus=@3, Hus_Kort=@4, Hus_Lang=@5, Hus_WijzigentoegestaanJN=@6, " +
                             "Hus_Mutatiedatum=@7, Hus_Opmerking=@8 Where Hus_Id=@1;";
 
 

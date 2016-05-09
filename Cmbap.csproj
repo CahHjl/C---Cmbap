@@ -141,6 +141,7 @@
     <Compile Include="tblBr.cs" />
     <Compile Include="tblBs.cs" />
     <Compile Include="tblEa.cs" />
+    <Compile Include="tblHc.cs" />
     <Compile Include="tblHu.cs" />
     <Compile Include="tblIl.cs" />
     <Compile Include="tblJg.cs" />
@@ -149,6 +150,7 @@
     <Compile Include="tblLi.cs" />
     <Compile Include="tblMo.cs" />
     <Compile Include="tblPd.cs" />
+    <Compile Include="tblSc.cs" />
     <Compile Include="tblSs.cs" />
     <Compile Include="tblSt.cs" />
     <Compile Include="tblSu.cs" />

@@ -221,7 +221,7 @@ namespace nsTblSu
 
         public void saveRecord(int iSuId, suRecord suR)
         {
-            string sqlStr = "Update Subuitgavesoort (Sus_StatusId=@2, Sus_DispStatus=@3, Sus_Kort=@4, Sus_Lang=@5, Sus_WijzigentoegestaanJN=@6, " +
+            string sqlStr = "Update Subuitgavesoort set Sus_StatusId=@2, Sus_DispStatus=@3, Sus_Kort=@4, Sus_Lang=@5, Sus_WijzigentoegestaanJN=@6, " +
                             "Sus_HusId=@7, Sus_DispHus=@8, Sus_Mutatiedatum=@9, Sus_Opmerking=@10 Where Sus_Id=@1;";
 
 
