@@ -86,7 +86,7 @@ namespace nsTblSu
                         {
                             //get rows
                             suListTCount++;
-                            if (sqlRdr.GetInt32(sqlRdr.GetOrdinal("Su_StatusId")) != 155009)
+                            if (sqlRdr.GetInt32(sqlRdr.GetOrdinal("Sus_StatusId")) != 155009)
                             {
                                 suListCount++;
                             }
@@ -269,7 +269,7 @@ namespace nsTblSu
                 }
                 catch (SystemException ex)
                 {
-                    System.Windows.Forms.MessageBox.Show(string.Format("Fout bij verwijderen van een sub uitgavesoort: {0}", ex.Message));
+                    System.Windows.Forms.MessageBox.Show(string.Format("Fout bij verwijderen van een subuitgavesoort: {0}", ex.Message));
                 }
             }
         }

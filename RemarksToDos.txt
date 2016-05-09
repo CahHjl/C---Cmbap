@@ -26,19 +26,19 @@ Done
 
 Alle tbl's
 					Ag Bg Br Bs Bl Ct Df Em Ea Gb Hc Hu Il Jg Js Kb Lc Lg Pd Pe Ss St Sc Su Tl Ug Vw Vr Li Mo
-- Recordstructuur	 +	+  +  +	 +			 +			 /	+  +  +		   +	 /	/		 +		  /	 /  /				
-- Zoekrecord		 +		  +	 +			 +				+  +  +		   +				 +							
-- Telrecords		 +		  +	 +			 +				+  +  +		   +				 +						
-- RecordsInList		 +		  +	 +			 +				+  +  +	 	   +	 			 +							
-- vanRecord			 +		  +	 +			 +				+  +  +		   +				 +								
-- defaultrecord		 +		  +	 +			 +				+  +  +		   +				 +						
-- newrecord			 +		  +	 +			 +				+  +  +		   +				 +						
-- saverecord		 +		  +	 +			 +				+  +  +		   +				 +						
-- deleterecord		 +		  +	 +			 +				+  +  +		   +				 +						
-- Invoer gegevens	 										+			   +					
-- Error-delete		 +		  +  +			 +				+  +  +		   +				 +	
+- Recordstructuur	 +	+  +  +	 +			 +		  +	 /	+  +  +		   +	 /	/	  +	 +		  /	 /  /				
+- Zoekrecord		 +		  +	 +			 +		  +		+  +  +		   +			  +	 +							
+- Telrecords		 +		  +	 +			 +		  +		+  +  +		   +			  +	 +						
+- RecordsInList		 +		  +	 +			 +		  +		+  +  +	 	   +	 		  +	 +							
+- vanRecord			 +		  +	 +			 +		  +		+  +  +		   +			  +	 +								
+- defaultrecord		 +		  +	 +			 +		  +		+  +  +		   +			  +	 +						
+- newrecord			 +		  +	 +			 +		  +		+  +  +		   +			  +	 +						
+- saverecord		 +		  +	 +			 +		  +		+  +  +		   +			  +	 +						
+- deleterecord		 +		  +	 +			 +		  +		+  +  +		   +			  +	 +						
+- Invoer gegevens	 										+			   +			  		
+- Error-delete		 +		  +  +			 +		  +		+  +  +		   +			  +	 +	
 - Error-saverecord
-- Error-newrecord
+- Error-newrecord	 
 - 
 				
 - Tellen van records verdeeld over totaal en zonder ...009  
