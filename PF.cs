@@ -51,8 +51,8 @@ namespace ProcFunc
             }
             tblIl il = new tblIl();
             tblIl.ilRecord ilr = new tblIl.ilRecord();
-            il.zoekInstellingRecord("Instl_Naam = " + "\"" + "Demo_Product_Aantal"+"\"");
-            if (il.lstInstellingRecord.Count == 0)
+            il.zoekInstellingenRecord("Instl_Naam = " + "\"" + "Demo_Product_Aantal"+"\"");
+            if (il.lstInstellingenRecord.Count == 0)
             {
                 gv.instellingDemoAantalProducten = 8;
                 gv.instellingDemoExtraAantalProducten = 2;
